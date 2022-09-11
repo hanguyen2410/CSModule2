@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class FoodManager {
     public List<Food> foods;
-    private final static String PATCH_MENU = "D:\\vscode\\module2\\CSModule2\\src\\FoodMenu.csv";
+    private final static String PATCH_MENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv";
 
     public FoodManager() {
         List<Food> foodList = new ArrayList<>();
@@ -187,13 +187,16 @@ public class FoodManager {
                             case "y":
                                 foods.remove(dished);
                                 count++;
-                                break;
+                                ReadFifeandWriteFile.write(PATCH_MENU, foods);
+                                renderFood();
+                                return;
                             case "b":
                                 return;
                             default:
                                 System.out.println("vui lòng nhập lại!!");
-                        }
+                                deleteFood();
 
+                        }
                     }
                 }
                 if (count == 0) {
@@ -201,8 +204,7 @@ public class FoodManager {
                     deleteFood();
                     break;
                 }
-                ReadFifeandWriteFile.write(PATCH_MENU, foods);
-                renderFood();
+
                 break;
             case "b":
                 break;
@@ -228,6 +230,7 @@ public class FoodManager {
         }
         if (count == 0) {
             System.out.println("Món ăn không có trong menu!!");
+            return;
         }
     }
 

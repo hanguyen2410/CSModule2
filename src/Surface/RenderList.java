@@ -22,8 +22,8 @@ public void renderUserManager(){
     System.out.println("\uD83D\uDC8E " + "      " + "1. Thêm người dùng" + "                " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "      " + "2. Sửa thông tin người dùng" + "       " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "      " + "3. Hiện danh sách người dùng" + "      " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "      " + "3. Xóa thông tin người dùng" + "       " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "      " + "4. Quay Lại" + "                       " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "      " + "4. Xóa thông tin người dùng" + "       " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "      " + "5. Quay Lại" + "                       " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "      " + "0. Thoát" + "                          " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
@@ -31,11 +31,12 @@ public void renderUserManager(){
 public void renderOrderManager(){
     System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "1. Hiện thông tin đơn đặt hàng" + "     " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "2. Sửa đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "3. Xóa đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "3. Thêm đơn đặt hàng" + "               " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "4. Quay lại" + "                        " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "1. Hiển thị tổng order" + "     " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "2. Hiển thị order theo ngày" + "     " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "3. thêm đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "4. xóa đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "5. sửa đơn đặt hàng" + "               " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "6. Quay lại" + "                        " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "     " + "0. Thoát" + "                           " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");

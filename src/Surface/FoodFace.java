@@ -117,6 +117,8 @@ public class FoodFace {
                             break;
                         case 5:
                             foodManager.findFoodName();
+                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
                                     choice = -1;
@@ -203,8 +205,44 @@ public class FoodFace {
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
+                        case 2:
+                            user.editUser();
+                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            choice = Integer.parseInt(scanner.nextLine());
+                            switch (choice) {
+                                case 1:
+                                    choice = -1;
+                                    break;
+                                case 0:
+                                    System.out.println("Hẹn Gặp Lại!!!");
+                                    System.exit(0);
+                                    break;
+                                default:
+                                    System.out.println("Vui Lòng Nhập Lại!");
+                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    choice = Integer.parseInt(scanner.nextLine());
+                            }
+                            break;
                         case 3:
                             user.renderUser();
+                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            choice = Integer.parseInt(scanner.nextLine());
+                            switch (choice) {
+                                case 1:
+                                    choice = -1;
+                                    break;
+                                case 0:
+                                    System.out.println("Hẹn Gặp Lại!!!");
+                                    System.exit(0);
+                                    break;
+                                default:
+                                    System.out.println("Vui Lòng Nhập Lại!");
+                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    choice = Integer.parseInt(scanner.nextLine());
+                            }
+                            break;
+                        case 4:
+                            user.deleteUser();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
