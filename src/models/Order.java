@@ -9,7 +9,12 @@ public class Order {
     private String address;
     private Instant createAt;
     public Order(){}
-
+    public Order(Long id, String fullName, String phone, String address){
+        this.id = id;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.address = address;
+    }
     public Order(Long id, String fullName, String phone, String address, Instant createAt) {
         this.id = id;
         this.fullName = fullName;
@@ -68,6 +73,6 @@ public class Order {
         return order;
     }
     public String toString(){
-        return String.format("%d,%s,%s,%s,%s,%s,%s,%s,%s",id,fullName,phone,address,createAt);
+        return String.format("%d,%s,%s,%s,%s",id,fullName,phone,address,createAt);
     }
 }

@@ -2,6 +2,7 @@ package Tools;
 
 import models.Order;
 import models.OrderItem;
+import models.User;
 import utils.InstantUtils;
 
 import java.io.BufferedReader;
@@ -28,7 +29,7 @@ public List<Order> findAll(){
     return orders;
 }
 public void renderOder(){
-    System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %s\n", "ID", "Tên người mua", "SĐT", "Địa chỉ", "Ngày Mua Hàng");
+//    System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", "ID Người Mua", "Tên người mua", "SĐT", "Địa chỉ", "Ngày Mua Hàng");
     BufferedReader br = null;
     try {
         String line;
@@ -60,19 +61,29 @@ public void renderOder(){
     }
 
     public static void printMenu(List<String> Order) {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", Order.get(0), Order.get(1),Order.get(2), Order.get(3), InstantUtils.instantToString(Instant.parse(Order.get(4))));
+//        System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", Order.get(0), Order.get(1),Order.get(2), Order.get(3), InstantUtils.instantToString(Instant.parse(Order.get(4))));
+        System.out.println("ID Người Mua: " + Order.get(0));
+        System.out.println("Tên người mua: " + Order.get(1));
+        System.out.println("Số điện thoại: " + Order.get(2));
+        System.out.println("Địa chỉ: " + Order.get(3));
+        System.out.println("Ngày và Giờ Mua Hàng: " +InstantUtils.instantToString(Instant.parse(Order.get(4))) );
     }
 
 
 public void addOrder(){
-    FoodManager render = new FoodManager();
+    List<Order> orderPersons = new ArrayList<>();
     Scanner input = new Scanner(System.in);
-    render.renderFood();
+    Long id = System.currentTimeMillis() / 1000;
     System.out.println("Nhập tên người mua hàng: ");
     String fullName = input.nextLine();
     System.out.println("Nhập số điện thoại người mua hàng: ");
     String phone = input.nextLine();
     System.out.println("Nhập địa chỉ người mua hàng: ");
-
+    String address = input.nextLine();
+    Order newOrder = new Order(id,fullName,phone,address);
+    newOrder.setCreateAt(Instant.now());
+    orderPersons.add(newOrder);
+    ReadFifeandWriteFile.write(PATCH_ODER,orderPersons);
 }
+
 }

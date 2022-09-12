@@ -69,6 +69,6 @@ public class OrderItem {
     }
     @Override
     public String toString() {
-        return String.format("%d,%s,%s,%s",id,nameFood,price,quantity);
+        return String.format("%d,%s,%s,%s,%s",id,nameFood,price,quantity,total);
     }
 }

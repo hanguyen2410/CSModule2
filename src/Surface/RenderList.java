@@ -1,6 +1,6 @@
 package Surface;
 
-public class RenderList {
+public class  RenderList {
 public void renderMenuManager(){
     System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
@@ -33,10 +33,10 @@ public void renderOrderManager(){
     System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "     " + "1. Hiển thị tổng order" + "     " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "     " + "2. Hiển thị order theo ngày" + "     " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "3. thêm đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "4. xóa đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "5. sửa đơn đặt hàng" + "               " + " \uD83D\uDC8E ");
-    System.out.println("\uD83D\uDC8E " + "     " + "6. Quay lại" + "                        " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "3. Thêm đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "4. Sửa đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "5. Xóa đơn đặt hàng" + "                " + " \uD83D\uDC8E ");
+    System.out.println("\uD83D\uDC8E " + "     " + "4. Quay lại" + "                        " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "     " + "0. Thoát" + "                           " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
     System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
