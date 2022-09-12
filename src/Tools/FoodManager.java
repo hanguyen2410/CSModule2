@@ -19,7 +19,7 @@ public class FoodManager {
         this.foods = foodList;
     }
 
-    public List<Food> findAll() {
+    public static List<Food> findAll() {
         List<Food> foods = new ArrayList<>();
         List<String> lines = ReadFifeandWriteFile.read(PATCH_MENU);
         for (String line : lines) {
@@ -57,7 +57,6 @@ public class FoodManager {
             }
 
         }
-
         return false;
     }
 
