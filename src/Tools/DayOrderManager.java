@@ -14,10 +14,10 @@ import java.util.Scanner;
 
 public class DayOrderManager {
     public List<AllOrder> allOrders;
-    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\DayOrder";
+    private final static String PATCH_DAYORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\DayOrder";
     public static List<DayOrder> findAll(){
         List<DayOrder> dayOrders = new ArrayList<>();
-        List<String> lines = ReadFifeandWriteFile.read(PATCH_ALLORDER);
+        List<String> lines = ReadFifeandWriteFile.read(PATCH_DAYORDER);
         for (String line: lines) {
             dayOrders.add(DayOrder.ParseDayOrder(line));
         }
@@ -28,7 +28,7 @@ public class DayOrderManager {
         BufferedReader br = null;
         try {
             String line;
-            br = new BufferedReader(new FileReader(PATCH_ALLORDER));
+            br = new BufferedReader(new FileReader(PATCH_DAYORDER));
             while ((line = br.readLine()) != null) {
                 printMenu(parseCsvLine(line));
             }
@@ -63,12 +63,32 @@ public void SortByDayOrder(){
         List<DayOrder> dayOrders = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập ngày muốn tìm kiếm (Ví dụ: 16-12-2022)");
-        Instant day = Instant.parse(input.nextLine());
+        String day = input.nextLine();
+        Long id;
+        String nameFood;
+        double price;
+        int quantity;
+        Double total;
+    Instant createAt;
+    int count =0;
         for (AllOrder allOrder: allorders){
-            if(allOrder.getCreateAt().equals(day)){
-            
+            if(InstantUtils.instantToString((allOrder.getCreateAt())).equals(day)){
+                id = allOrder.getId();
+                nameFood = allOrder.getNameFood();
+                price = allOrder.getPrice();
+                quantity = allOrder.getQuantity();
+                total = allOrder.getTotal();
+                createAt = allOrder.getCreateAt();
+                DayOrder dayOrder = new DayOrder(id,nameFood,price,quantity,total,createAt);
+                dayOrders.add(dayOrder);
+                count++;
+                ReadFifeandWriteFile.write(PATCH_DAYORDER,dayOrders);
             }
         }
+        if(count == 0) {
+            System.out.println("Ngày không đúng , vui lòng nhập lại!!");
+        }
+    renderAllOrder();
 }
 }
 

@@ -266,6 +266,7 @@ public class FoodFace {
                     OrderManager orderManager = new OrderManager();
                     OrderItemManager orderItemManager = new OrderItemManager();
                     AllOrderManager allOrderManager = new AllOrderManager();
+                    DayOrderManager dayOrderManager = new DayOrderManager();
                     System.out.println("Vui lòng nhập lựa chọn của bạn: ");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice){
@@ -273,6 +274,7 @@ public class FoodFace {
                             allOrderManager.renderAllOrder();
                             break;
                         case 2: // hiển thị order theo ngày
+                            dayOrderManager.SortByDayOrder();
                             break;
                         case 3: //thêm đơn đặt hàng
                             orderManager.addOrder();
@@ -282,8 +284,29 @@ public class FoodFace {
                             System.out.println("Tổng Cộng : " + orderItemManager.totalPrice());
                             break;
                         case 4:// sửa đơn đặt hàng
+                            orderItemManager.editOrderItem();
+                            System.out.println("Nhấn 1 để in hóa đơn hoặc 2 để order tiếp và 0 để thoát !! ");
+                            choice = Integer.parseInt(scanner.nextLine());
+                            switch (choice) {
+                                case 1:
+                                    orderManager.renderOder();
+                                    orderItemManager.renderOrderItem();
+                                    break;
+                                case 2:
+                                    choice = 2;
+                                    break;
+                                case 0:
+                                    System.out.println("Hẹn Gặp Lại!!!");
+                                    System.exit(0);
+                                    break;
+                                default:
+                                    System.out.println("Vui Lòng Nhập Lại!");
+                                    System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                    choice = Integer.parseInt(scanner.nextLine());
+                            }
                             break;
                         case 5: //xóa đơn đặt hàng
+
                             break;
                     }
                     break;

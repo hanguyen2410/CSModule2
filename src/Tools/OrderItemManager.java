@@ -1,5 +1,6 @@
 package Tools;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import models.AllOrder;
 import models.Food;
 import models.OrderItem;
@@ -69,7 +70,7 @@ public class OrderItemManager {
                 countQuantity++;
             }
         }
-        if(countQuantity == 0){
+        if (countQuantity == 0) {
             System.out.println("Số lượng không đủ vui lòng nhập lại!!");
             addOrderItem();
             return;
@@ -80,7 +81,7 @@ public class OrderItemManager {
         List<AllOrder> allOrders = AllOrderManager.findAll();
         AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
         allOrders.add(allOrder);
-        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv",allOrders);
+        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
         renderOrderItem();
@@ -90,11 +91,15 @@ public class OrderItemManager {
             case "y":
                 boolean tamp = true;
                 while (tamp) {
-                    updateOrderItem();
-                    System.out.println("Nhập y nếu muốn order tiếp hoặc p để in hóa đơn ");
+                    System.out.println("Nhập y nếu muốn order tiếp ,Nhập e để sửa order hoặc p để in hóa đơn ");
                     choice = input.nextLine();
                     switch (choice) {
                         case "y":
+                            updateOrderItem();
+                            tamp = true;
+                            break;
+                        case "e":
+                            editOrderItem();
                             tamp = true;
                             break;
                         case "p":
@@ -124,6 +129,48 @@ public class OrderItemManager {
         Double total = Double.valueOf(0);
         String nameFood = "";
         int count = 0;
+        for (OrderItem orderItem : orderItems) {
+            Long tampSame = orderItem.getId();
+            if (tampSame.equals(id)) {
+                List<OrderItem> orderItemList = new ArrayList<>();
+                price = orderItem.getPrice();
+                nameFood = orderItem.getNameFood();
+                count++;
+                System.out.println("Nhập số lượng muốn mua: ");
+                int quantity = Integer.parseInt(input.nextLine());
+                int countQuantity = 0;
+                if (orderItem.getId().equals(id))
+                    orderItem.setQuantity(orderItem.getQuantity() + quantity);
+                total = orderItem.getPrice() * orderItem.getQuantity();
+                for (Food dish : foods) {
+                    int tampQuantity = dish.getQuantity();
+                    Long tampid = dish.getId();
+                    if (tampid.equals(id) && tampQuantity >= quantity) {
+                        dish.setQuantity(dish.getQuantity() - quantity);
+                        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv", foods);
+                        countQuantity++;
+                    }
+
+                }
+
+
+                if (countQuantity == 0) {
+                    System.out.println("Số lượng không đủ vui lòng nhập lại!!");
+                    updateOrderItem();
+                    return;
+                }
+                OrderItem newOrder = new OrderItem(id, nameFood, price, orderItem.getQuantity(), total);
+                orderItemList.add(newOrder);
+                Instant createAt = Instant.now();
+                List<AllOrder> allOrders = AllOrderManager.findAll();
+                AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
+                allOrders.add(allOrder);
+                ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
+                ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
+                System.out.println("Order thành công!");
+                return;
+            }
+        }
         for (Food dish : foods) {
             Long tamp = dish.getId();
             if (tamp.equals(id)) {
@@ -151,7 +198,7 @@ public class OrderItemManager {
             }
 
         }
-        if(countQuantity == 0) {
+        if (countQuantity == 0) {
             System.out.println("Số lượng không đủ vui lòng nhập lại!!");
             updateOrderItem();
             return;
@@ -160,9 +207,9 @@ public class OrderItemManager {
         orderItems.add(newOrder);
         Instant createAt = Instant.now();
         List<AllOrder> allOrders = AllOrderManager.findAll();
-        AllOrder allOrder = new AllOrder(id,nameFood,price,quantity,total,createAt);
+        AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
         allOrders.add(allOrder);
-        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv",allOrders);
+        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
     }
@@ -246,7 +293,7 @@ public class OrderItemManager {
             orderItem.setQuantity(quantity);
             orderItem.setTotal(total);
             count++;
-            ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
+            ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
             renderOrderItem();
             break;
         }
@@ -255,10 +302,11 @@ public class OrderItemManager {
             editOrderItem();
         }
     }
-    public Double totalPrice(){
+
+    public Double totalPrice() {
         List<OrderItem> orderItemList = findAll();
-        Double  totalPirce = Double.valueOf(0);
-        for (OrderItem orderItem: orderItemList) {
+        Double totalPirce = Double.valueOf(0);
+        for (OrderItem orderItem : orderItemList) {
             totalPirce += orderItem.getTotal();
         }
         return totalPirce;
