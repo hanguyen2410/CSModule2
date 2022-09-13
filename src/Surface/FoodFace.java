@@ -321,7 +321,10 @@ public class FoodFace {
                             orderItemManager.addOrderItem();
                             orderManager.renderOder();
                             orderItemManager.renderOrderItem();
-                            System.out.println("Tổng Cộng : " + orderItemManager.totalPrice());
+                            System.out.println();
+                            System.out.println("                                      Tổng Cộng : " + orderItemManager.totalPrice());
+                            System.out.println();
+                            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                             System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {

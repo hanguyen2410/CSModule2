@@ -30,6 +30,7 @@ public List<Order> findAll(){
     return orders;
 }
 public void renderOder(){
+    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋CUSTOMER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
 //    System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", "ID Người Mua", "Tên người mua", "SĐT", "Địa chỉ", "Ngày Mua Hàng");
     BufferedReader br = null;
     try {
@@ -67,7 +68,7 @@ public void renderOder(){
         System.out.println("Tên người mua: " + Order.get(1));
         System.out.println("Số điện thoại: " + Order.get(2));
         System.out.println("Địa chỉ: " + Order.get(3));
-        System.out.println("Ngày và Giờ Mua Hàng: " +InstantUtils.instantToString(Instant.parse(Order.get(4))) );
+        System.out.println("Ngày và Giờ Mua Hàng: " +InstantUtils.instantToString(Instant.parse(Order.get(4))));
     }
 
 

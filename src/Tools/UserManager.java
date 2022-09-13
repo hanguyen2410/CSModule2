@@ -40,7 +40,8 @@ public class UserManager {
     }
 
     public static void renderUser() {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %s\n", "ID", "UserName", "PassWord", "Tên đầy đủ", "Số điện thoại", "Email", "Địa chỉ", "Ngày Tạo");
+        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋USER-LIST㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %s\n", "ID", "UserName", "PassWord", "Tên đầy đủ", "Số điện thoại", "Email", "Địa chỉ", "Ngày Tạo", "㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -58,6 +59,8 @@ public class UserManager {
                 e.printStackTrace();
             }
         }
+        System.out.println();
+        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
     }
 
     public static List<String> parseCsvLine(String csvLine) {
@@ -72,7 +75,7 @@ public class UserManager {
     }
 
     public static void printMenu(List<String> userList) {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %s\n", userList.get(0), userList.get(1), userList.get(2), userList.get(3), userList.get(4), userList.get(5), userList.get(6), InstantUtils.instantToString(Instant.parse(userList.get(7))));
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %s\n", userList.get(0), userList.get(1), userList.get(2), userList.get(3), userList.get(4), userList.get(5), userList.get(6), InstantUtils.instantToString(Instant.parse(userList.get(7))),"㊋");
     }
 
     public static void addUser() {

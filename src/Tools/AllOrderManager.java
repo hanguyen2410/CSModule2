@@ -23,7 +23,8 @@ public static List<AllOrder> findAll(){
     return allOders;
 }
 public void renderAllOrder(){
-    System.out.printf("\n\t%-16s %-36s %-26s %-15s %-26s %s\n\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng","Thành Tiền","Ngày Xuất Đơn");
+    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋ALL-ORDER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+    System.out.printf("\n\t%-16s %-36s %-26s %-15s %-26s %-16s %s\n\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng","Thành Tiền","Ngày Xuất Đơn","㊋");
     BufferedReader br = null;
     try {
         String line;
@@ -41,6 +42,7 @@ public void renderAllOrder(){
             e.printStackTrace();
         }
     }
+    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
 }
 
     public static List<String> parseCsvLine(String csvLine) {
@@ -55,7 +57,7 @@ public void renderAllOrder(){
     }
 
     public static void printMenu(List<String> AllOder) {
-        System.out.printf("\n\t%-16s %-36s %-26s %-16s %-26s %s\n\n", AllOder.get(0), AllOder.get(1), AllOder.get(2), AllOder.get(3),AllOder.get(4), InstantUtils.instantToString(Instant.parse(AllOder.get(5))));
+        System.out.printf("\n\t%-16s %-36s %-26s %-16s %-26s %-15s %s\n\n", AllOder.get(0), AllOder.get(1), AllOder.get(2), AllOder.get(3),AllOder.get(4), InstantUtils.instantToString(Instant.parse(AllOder.get(5))),"㊋");
     }
 
 }

@@ -169,6 +169,7 @@ public class OrderItemManager {
                 allOrders.add(allOrder);
                 ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
                 ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
+                renderOrderItem();
                 System.out.println("Order thành công!");
                 return;
             }
@@ -212,11 +213,13 @@ public class OrderItemManager {
         allOrders.add(allOrder);
         ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
+        renderOrderItem();
         System.out.println("Order thành công!");
     }
 
     public void renderOrderItem() {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", "ID Product", "Tên Vật Phẩm", "Giá Tiền", "Số lượng", "Thành Tiền");
+        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋ORDER-ITEMS㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-13s %s\n", "ID Product", "Tên Vật Phẩm", "Giá Tiền", "Số lượng", "Thành Tiền","㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -234,10 +237,11 @@ public class OrderItemManager {
                 e.printStackTrace();
             }
         }
+
     }
 
     public static void printMenuOrderItem(List<String> OrderItem) {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", OrderItem.get(0), OrderItem.get(1), OrderItem.get(2), OrderItem.get(3), OrderItem.get(4));
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-13s %s\n", OrderItem.get(0), OrderItem.get(1), OrderItem.get(2), OrderItem.get(3), OrderItem.get(4),"㊋");
     }
 
     public static List<String> parseCsvLine(String csvLine) {
