@@ -5,7 +5,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class InstantUtils {
-    private static final String PATTERN_FORMAT = "HH:mm dd-MM-yyyy";
+    private static final String PATTERN_FORMAT = "dd-MM-yyyy";
     public static String instantToString(Instant instant){
       return instantToString(instant,null);
     }

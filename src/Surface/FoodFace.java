@@ -1,9 +1,6 @@
 package Surface;
 
-import Tools.FoodManager;
-import Tools.OrderItemManager;
-import Tools.OrderManager;
-import Tools.UserManager;
+import Tools.*;
 import models.OrderItem;
 import models.User;
 
@@ -268,10 +265,12 @@ public class FoodFace {
                     renderList.renderOrderManager();
                     OrderManager orderManager = new OrderManager();
                     OrderItemManager orderItemManager = new OrderItemManager();
+                    AllOrderManager allOrderManager = new AllOrderManager();
                     System.out.println("Vui lòng nhập lựa chọn của bạn: ");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice){
                         case 1: //hiển thị tổng oder
+                            allOrderManager.renderAllOrder();
                             break;
                         case 2: // hiển thị order theo ngày
                             break;
@@ -280,6 +279,7 @@ public class FoodFace {
                             orderItemManager.addOrderItem();
                             orderManager.renderOder();
                             orderItemManager.renderOrderItem();
+                            System.out.println("Tổng Cộng : " + orderItemManager.totalPrice());
                             break;
                         case 4:// sửa đơn đặt hàng
                             break;

@@ -1,12 +1,13 @@
 package Tools;
 
+import models.AllOrder;
 import models.Food;
-import models.Order;
 import models.OrderItem;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -75,6 +76,11 @@ public class OrderItemManager {
         }
         OrderItem newOrder = new OrderItem(id, nameFood, price, quantity, total);
         orderItems.add(newOrder);
+        Instant createAt = Instant.now();
+        List<AllOrder> allOrders = AllOrderManager.findAll();
+        AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
+        allOrders.add(allOrder);
+        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv",allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
         renderOrderItem();
@@ -152,6 +158,11 @@ public class OrderItemManager {
         }
         OrderItem newOrder = new OrderItem(id, nameFood, price, quantity, total);
         orderItems.add(newOrder);
+        Instant createAt = Instant.now();
+        List<AllOrder> allOrders = AllOrderManager.findAll();
+        AllOrder allOrder = new AllOrder(id,nameFood,price,quantity,total,createAt);
+        allOrders.add(allOrder);
+        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv",allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
     }
@@ -243,5 +254,13 @@ public class OrderItemManager {
             System.out.println("ID không tồn tại vui lòng nhập lại!");
             editOrderItem();
         }
+    }
+    public Double totalPrice(){
+        List<OrderItem> orderItemList = findAll();
+        Double  totalPirce = Double.valueOf(0);
+        for (OrderItem orderItem: orderItemList) {
+            totalPirce += orderItem.getTotal();
+        }
+        return totalPirce;
     }
 }
