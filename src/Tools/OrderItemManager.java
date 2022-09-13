@@ -59,6 +59,11 @@ public class OrderItemManager {
         }
         System.out.println("Nhập số lượng muốn mua: ");
         int quantity = Integer.parseInt(input.nextLine());
+        if (quantity <= 0) {
+            System.out.println("Số lượng không được bé hơn hoặc bằng 0 !!");
+            addOrderItem();
+            return;
+        }
         int countQuantity = 0;
         for (Food dish : foods) {
             int tampQuantity = dish.getQuantity();
@@ -91,7 +96,7 @@ public class OrderItemManager {
             case "y":
                 boolean tamp = true;
                 while (tamp) {
-                    System.out.println("Nhập y nếu muốn order tiếp ,Nhập e để sửa order hoặc p để in hóa đơn ");
+                    System.out.println("Nhập y nếu muốn order tiếp ,Nhập e để sửa order, nhập d để xóa order hoặc p để in hóa đơn: ");
                     choice = input.nextLine();
                     switch (choice) {
                         case "y":
@@ -100,6 +105,10 @@ public class OrderItemManager {
                             break;
                         case "e":
                             editOrderItem();
+                            tamp = true;
+                            break;
+                        case "d":
+                            deleteOrderItem();
                             tamp = true;
                             break;
                         case "p":
@@ -137,23 +146,26 @@ public class OrderItemManager {
                 nameFood = orderItem.getNameFood();
                 count++;
                 System.out.println("Nhập số lượng muốn mua: ");
-                int quantity = Integer.parseInt(input.nextLine());
+                int quantityUpdate = Integer.parseInt(input.nextLine());
+                if (quantityUpdate <= 0) {
+                    System.out.println("Số lượng không được bé hơn hoặc bằng 0 !!");
+                    updateOrderItem();
+                    return;
+                }
                 int countQuantity = 0;
                 if (orderItem.getId().equals(id))
-                    orderItem.setQuantity(orderItem.getQuantity() + quantity);
+                    orderItem.setQuantity(orderItem.getQuantity() + quantityUpdate);
                 total = orderItem.getPrice() * orderItem.getQuantity();
                 for (Food dish : foods) {
                     int tampQuantity = dish.getQuantity();
                     Long tampid = dish.getId();
-                    if (tampid.equals(id) && tampQuantity >= quantity) {
-                        dish.setQuantity(dish.getQuantity() - quantity);
+                    if (tampid.equals(id) && tampQuantity >= quantityUpdate) {
+                        dish.setQuantity(dish.getQuantity() - quantityUpdate);
                         ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv", foods);
                         countQuantity++;
                     }
 
                 }
-
-
                 if (countQuantity == 0) {
                     System.out.println("Số lượng không đủ vui lòng nhập lại!!");
                     updateOrderItem();
@@ -163,7 +175,7 @@ public class OrderItemManager {
                 orderItemList.add(newOrder);
                 Instant createAt = Instant.now();
                 List<AllOrder> allOrders = AllOrderManager.findAll();
-                AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
+                AllOrder allOrder = new AllOrder(id, nameFood, price, quantityUpdate, total, createAt);
                 allOrders.add(allOrder);
                 ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
                 ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
@@ -186,6 +198,11 @@ public class OrderItemManager {
         }
         System.out.println("Nhập số lượng muốn mua: ");
         int quantity = Integer.parseInt(input.nextLine());
+        if (quantity <= 0) {
+            System.out.println("Số lượng không được bé hơn hoặc bằng 0 !!");
+            updateOrderItem();
+            return;
+        }
         int countQuantity = 0;
         for (Food dish : foods) {
             int tampQuantity = dish.getQuantity();
@@ -300,6 +317,36 @@ public class OrderItemManager {
         if (count == 0) {
             System.out.println("ID không tồn tại vui lòng nhập lại!");
             editOrderItem();
+        }
+    }
+
+    public void deleteOrderItem() {
+        Scanner input = new Scanner(System.in);
+        List<OrderItem> orderItemList = findAll();
+        renderOrderItem();
+        System.out.println("Nhập ID của vật phẩm muốn xóa: ");
+        Long id = Long.parseLong(input.nextLine());
+        int count = 0;
+        for (OrderItem orderItem : orderItemList) {
+            Long tamp = orderItem.getId();
+            if (tamp.equals(id)) {
+                count++;
+                System.out.println("Bạn có chắc chắn muốn xóa id " + id + ", nhấn y để xóa hoặc b để quay lại!");
+                String choice = input.nextLine();
+                switch (choice) {
+                    case "y":
+                        orderItemList.remove(orderItem);
+                        ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
+                        renderOrderItem();
+                        break;
+                    case "b":
+                        return;
+                }
+            }
+        }
+        if (count == 0) {
+            System.out.println("ID không tồn tại vui lòng nhập lại !!");
+            deleteOrderItem();
         }
     }
 
