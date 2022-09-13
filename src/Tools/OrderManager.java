@@ -4,6 +4,7 @@ import models.Order;
 import models.OrderItem;
 import models.User;
 import utils.InstantUtils;
+import utils.UserValidateUltils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -74,10 +75,8 @@ public void addOrder(){
     List<Order> orderPersons = new ArrayList<>();
     Scanner input = new Scanner(System.in);
     Long id = System.currentTimeMillis() / 1000;
-    System.out.println("Nhập tên người mua hàng: ");
-    String fullName = input.nextLine();
-    System.out.println("Nhập số điện thoại người mua hàng: ");
-    String phone = input.nextLine();
+    String fullName = UserValidateUltils.inputFullName();
+    String phone = UserValidateUltils.inputPhone();
     System.out.println("Nhập địa chỉ người mua hàng: ");
     String address = input.nextLine();
     Order newOrder = new Order(id,fullName,phone,address);

@@ -2,6 +2,7 @@ package Tools;
 
 import Surface.FoodFace;
 import models.Food;
+import utils.OrderValidateUltils;
 
 import java.io.*;
 import java.util.Collections;
@@ -136,12 +137,9 @@ public class FoodManager {
                 for (Food dish : foods) {
                     Long tamp = dish.getId();
                     if (tamp.equals(id)) {
-                        System.out.println("Nhập tên món ăn muốn chỉnh sửa: ");
-                        String name = input.nextLine();
-                        System.out.println("Nhập giá món ăn muốn chỉnh sửa: ");
-                        double price = Double.parseDouble(input.nextLine());
-                        System.out.println("Nhập số lượng muốn chỉnh sửa");
-                        int quatity = Integer.parseInt(input.nextLine());
+                        String name = OrderValidateUltils.inputFoodName();
+                        double price = OrderValidateUltils.inputPrice();
+                        int quatity = OrderValidateUltils.inputQuantity();
                         dish.setFoodName(name);
                         dish.setPrice(price);
                         dish.setQuantity(quatity);

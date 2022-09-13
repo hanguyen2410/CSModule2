@@ -2,6 +2,8 @@ package Tools;
 
 import models.User;
 import utils.InstantUtils;
+import utils.UserValidateUltils;
+import utils.ValidateUltils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,10 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static utils.UserValidateUltils.inputFullName;
+
 public class UserManager {
     private final static String PATCH_USER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv";
 
-    public List<User> findAll() {
+    public static List<User> findAll() {
         List<User> users = new ArrayList<>();
         List<String> lines = ReadFifeandWriteFile.read(PATCH_USER);
         for (String line : lines) {
@@ -23,7 +27,7 @@ public class UserManager {
         return users;
     }
 
-    public boolean checkUserNameInTheList(String userName) {
+    public static boolean checkUserNameInTheList(String userName) {
         List<User> users = findAll();
         if (!users.isEmpty()) {
             for (User username : users) {
@@ -35,7 +39,7 @@ public class UserManager {
         return false;
     }
 
-    public void renderUser() {
+    public static void renderUser() {
         System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %s\n", "ID", "UserName", "PassWord", "Tên đầy đủ", "Số điện thoại", "Email", "Địa chỉ", "Ngày Tạo");
         BufferedReader br = null;
         try {
@@ -71,26 +75,16 @@ public class UserManager {
         System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %s\n", userList.get(0), userList.get(1), userList.get(2), userList.get(3), userList.get(4), userList.get(5), userList.get(6), InstantUtils.instantToString(Instant.parse(userList.get(7))));
     }
 
-    public void addUser() {
+    public static void addUser() {
         List<User> users = findAll();
         Scanner input = new Scanner(System.in);
 //    renderUser();
         Long id = System.currentTimeMillis() / 1000;
-        System.out.println("Nhập username muốn tạo: ");
-        String userName = input.nextLine();
-        if (checkUserNameInTheList(userName)) {
-            System.out.println("Username đã có, vui lòng nhập lại !!");
-            addUser();
-            return;
-        }
-        System.out.println("Nhập Password :");
-        String passWord = input.nextLine();
-        System.out.println("Nhập tên người dùng: ");
-        String fullName = input.nextLine();
-        System.out.println("Nhập số điện thoại người dùng: ");
-        String phone = input.nextLine();
-        System.out.println("Nhập email người dùng :");
-        String email = input.nextLine();
+        String userName = UserValidateUltils.inputUserName();
+        String passWord = UserValidateUltils.inputPassWord();
+        String fullName = UserValidateUltils.inputFullName();
+        String phone = UserValidateUltils.inputPhone();
+        String email = UserValidateUltils.inputEmail();
         System.out.println("Nhập địa chỉ người dùng: ");
         String address = input.nextLine();
         User newUser = new User(id, userName, passWord, fullName, phone, email, address);
@@ -114,16 +108,11 @@ public class UserManager {
                 for (User userList : users) {
                     Long tamp = userList.getId();
                     if (tamp.equals(id)) {
-                        System.out.println("Nhập Username muốn sửa: ");
-                        String userName = input.nextLine();
-                        System.out.println("Nhập Password muốn chính sửa: ");
-                        String passWord = input.nextLine();
-                        System.out.println("Nhập tên đầy đủ muốn chỉnh sửa: ");
-                        String fullName = input.nextLine();
-                        System.out.println("Nhập SĐT muốn thay đổi: ");
-                        String phone = input.nextLine();
-                        System.out.println("Nhập Email muốn thay đổi: ");
-                        String email = input.nextLine();
+                        String userName = UserValidateUltils.inputUserName();
+                        String passWord = UserValidateUltils.inputPassWord();
+                        String fullName = UserValidateUltils.inputFullName();
+                        String phone = UserValidateUltils.inputPhone();
+                        String email = UserValidateUltils.inputEmail();
                         System.out.println("Nhập Địa chỉ muốn thay đổi: ");
                         String address = input.nextLine();
                         userList.setUsername(userName);
