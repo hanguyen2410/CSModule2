@@ -21,7 +21,8 @@ public class DayOrder {
         this.total = total;
         this.createAt = createAt;
     }
-    public static DayOrder ParseDayOrder(String raw){
+
+    public static DayOrder ParseDayOrder(String raw) {
         DayOrder dayOrder = new DayOrder();
         String[] fields = raw.split(",");
         dayOrder.id = Long.parseLong(fields[0]);
@@ -80,9 +81,10 @@ public class DayOrder {
     public void setCreateAt(Instant createAt) {
         this.createAt = createAt;
     }
+
     @Override
     public String toString() {
-        return String.format("%d,%s,%s,%s,%s,%s",id,nameFood,price,quantity,total,createAt);
+        return String.format("%d,%s,%s,%s,%s,%s", id, nameFood, price, quantity, total, createAt);
     }
 
 }

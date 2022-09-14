@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 import models.AllOrder;
 import models.Food;
 import models.OrderItem;
+import utils.InstantUtils;
 import utils.OrderValidateUltils;
 
 import java.io.BufferedReader;
@@ -219,7 +220,7 @@ public class OrderItemManager {
 
     public void renderOrderItem() {
         System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋ORDER-ITEMS㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-        System.out.printf("\n%-25s %-25s %-25s %-25s %-13s %s\n", "ID Product", "Tên Vật Phẩm", "Giá Tiền", "Số lượng", "Thành Tiền","㊋");
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-13s %s\n", "ID Product", "Tên Vật Phẩm", "Giá Tiền", "Số lượng", "Thành Tiền", "㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -241,7 +242,7 @@ public class OrderItemManager {
     }
 
     public static void printMenuOrderItem(List<String> OrderItem) {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %-13s %s\n", OrderItem.get(0), OrderItem.get(1), OrderItem.get(2), OrderItem.get(3), OrderItem.get(4),"㊋");
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-13s %s\n", OrderItem.get(0), OrderItem.get(1), InstantUtils.doubleToVND(Double.parseDouble(OrderItem.get(2))), OrderItem.get(3), InstantUtils.doubleToVND(Double.parseDouble(OrderItem.get(4))), "㊋");
     }
 
     public static List<String> parseCsvLine(String csvLine) {

@@ -2,6 +2,7 @@ package Tools;
 
 import Surface.FoodFace;
 import models.Food;
+import utils.InstantUtils;
 import utils.OrderValidateUltils;
 
 import java.io.*;
@@ -38,6 +39,7 @@ public class FoodManager {
         }
         return false;
     }
+
     //    public boolean checkIDInTheList(Long id){
 //        if(!foodList.isEmpty()){
 //            for(Food foods: foodList){
@@ -80,7 +82,7 @@ public class FoodManager {
 
     public void renderFood() {
         System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋MENU㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-        System.out.printf("\n\t%-16s %-36s %-26s %-10s %s\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng" ,"㊋");
+        System.out.printf("\n\t%-16s %-36s %-26s %-10s %s\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng", "㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -114,7 +116,7 @@ public class FoodManager {
     }
 
     public static void printMenu(List<String> FoodMenu) {
-        System.out.printf("\n\t%-16s %-36s %-26s %-10s %s\n", FoodMenu.get(0), FoodMenu.get(1), FoodMenu.get(2), FoodMenu.get(3),"㊋");
+        System.out.printf("\n\t%-16s %-36s %-26s %-10s %s\n", FoodMenu.get(0), FoodMenu.get(1),InstantUtils.doubleToVND(Double.parseDouble(FoodMenu.get(2))) , FoodMenu.get(3), "㊋");
     }
 
 

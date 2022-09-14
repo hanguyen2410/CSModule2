@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Food implements Comparable<Food>, Serializable {
     private Long id;
-private String foodName;
-private double price;
-private int quantity;
+    private String foodName;
+    private double price;
+    private int quantity;
 
     public Food() {
     }
@@ -52,17 +52,18 @@ private int quantity;
 
     @Override
     public String toString() {
-        return  id +
+        return id +
                 "," + foodName +
                 "," + price +
                 "," + quantity;
     }
+
     public static Food parseFood(String raw) {
         Food food = new Food();
         String[] fields = raw.split(",");
         food.id = Long.parseLong(fields[0]);
         food.foodName = fields[1];
-        food.price =  Double.parseDouble(fields[2]);
+        food.price = Double.parseDouble(fields[2]);
         food.quantity = Integer.parseInt(fields[3]);
 
         return food;

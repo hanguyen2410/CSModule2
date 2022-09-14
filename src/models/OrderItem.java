@@ -1,11 +1,11 @@
 package models;
 
 public class OrderItem {
-    private  Long id;
+    private Long id;
     private double price;
     private int quantity;
-   private  String nameFood;
-   private Double total;
+    private String nameFood;
+    private Double total;
 
     public OrderItem(Long id, String nameFood, Double price, int quantity, Double total) {
         this.id = id;
@@ -31,9 +31,10 @@ public class OrderItem {
         this.nameFood = nameFood;
     }
 
-    public OrderItem(){}
+    public OrderItem() {
+    }
 
-    public static OrderItem parseOrderItem(String raw){
+    public static OrderItem parseOrderItem(String raw) {
         OrderItem orderItem = new OrderItem();
         String[] fields = raw.split(",");
         orderItem.id = Long.parseLong(fields[0]);
@@ -67,8 +68,9 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
     @Override
     public String toString() {
-        return String.format("%d,%s,%s,%s,%s",id,nameFood,price,quantity,total);
+        return String.format("%d,%s,%s,%s,%s", id, nameFood, price, quantity, total);
     }
 }

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static utils.UserValidateUltils.inputFullName;
+import static utils.UserValidateUltils.inputRole;
 
 public class UserManager {
     private final static String PATCH_USER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv";
@@ -41,7 +42,7 @@ public class UserManager {
 
     public static void renderUser() {
         System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋USER-LIST㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %s\n", "ID", "UserName", "PassWord", "Tên đầy đủ", "Số điện thoại", "Email", "Địa chỉ", "Ngày Tạo", "㊋");
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %-15s %s\n", "ID", "UserName", "PassWord", "Tên đầy đủ", "Số điện thoại", "Email", "Địa chỉ","Vai Trò", "Ngày Tạo", "㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -75,13 +76,12 @@ public class UserManager {
     }
 
     public static void printMenu(List<String> userList) {
-        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %s\n", userList.get(0), userList.get(1), userList.get(2), userList.get(3), userList.get(4), userList.get(5), userList.get(6), InstantUtils.instantToString(Instant.parse(userList.get(7))),"㊋");
+        System.out.printf("\n%-25s %-25s %-25s %-25s %-25s %-35s %-15s %-15s %-15s %s\n", userList.get(0), userList.get(1), userList.get(2), userList.get(3), userList.get(4), userList.get(5), userList.get(6),userList.get(7), InstantUtils.instantToString(Instant.parse(userList.get(8))),"㊋");
     }
 
     public static void addUser() {
         List<User> users = findAll();
         Scanner input = new Scanner(System.in);
-//    renderUser();
         Long id = System.currentTimeMillis() / 1000;
         String userName = UserValidateUltils.inputUserName();
         String passWord = UserValidateUltils.inputPassWord();
@@ -90,10 +90,12 @@ public class UserManager {
         String email = UserValidateUltils.inputEmail();
         System.out.println("Nhập địa chỉ người dùng: ");
         String address = input.nextLine();
-        User newUser = new User(id, userName, passWord, fullName, phone, email, address);
+        String role = UserValidateUltils.inputRole();
+        User newUser = new User(id, userName, passWord, fullName, phone, email, address,role);
         newUser.setCreatedAt(Instant.now());
         users.add(newUser);
         ReadFifeandWriteFile.write(PATCH_USER, users);
+        System.out.println("Đã tạo thành công !!");
         renderUser();
     }
 
@@ -118,12 +120,14 @@ public class UserManager {
                         String email = UserValidateUltils.inputEmail();
                         System.out.println("Nhập Địa chỉ muốn thay đổi: ");
                         String address = input.nextLine();
+                        String role = UserValidateUltils.inputRole();
                         userList.setUsername(userName);
                         userList.setPassword(passWord);
                         userList.setFullName(fullName);
                         userList.setPhone(phone);
                         userList.setEmail(email);
                         userList.setAddress(address);
+                        userList.setRole(role);
                         userList.setId(id);
                         count++;
                         ReadFifeandWriteFile.write(PATCH_USER, users);

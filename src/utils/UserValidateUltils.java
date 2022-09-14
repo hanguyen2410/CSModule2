@@ -2,6 +2,7 @@ package utils;
 
 import Tools.UserManager;
 
+import java.lang.ref.SoftReference;
 import java.util.Scanner;
 
 public class UserValidateUltils {
@@ -62,14 +63,43 @@ public class UserValidateUltils {
         } while (!ValidateUltils.isPhoneValid(phone));
         return phone;
     }
-    public static String inputEmail(){
+
+    public static String inputEmail() {
         String email = "";
         do {
             System.out.println("Nhập email người dùng : (Ví dụ : nguyenvanha2410@gmail.com)");
             email = input.nextLine();
-            if(!ValidateUltils.isEmailValid(email))
+            if (!ValidateUltils.isEmailValid(email))
                 System.out.println("Không đúng định dạng vui lòng nhập lại!!");
-        }while (!ValidateUltils.isEmailValid(email));
+        } while (!ValidateUltils.isEmailValid(email));
         return email;
+    }
+
+    public static String inputRole() {
+        String inputRole = "";
+        do {
+            System.out.println("㊋㊋㊋㊋㊋㊋ROLE㊋㊋㊋㊋㊋㊋㊋");
+            System.out.println("        " + "1.SADMIN" + "       ㊋");
+            System.out.println("        " + "2.ADMIN" + "        ㊋");
+            System.out.println("        " + "3.USER" + "         ㊋ ");
+            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+            System.out.println("Chọn role bạn muốn thêm : ");
+            inputRole = input.nextLine();
+            switch (inputRole) {
+                case "1":
+                    inputRole = "SADMIN";
+                    break;
+                case "2":
+                    inputRole = "ADMIN";
+                    break;
+                case "3":
+                    inputRole = "USER";
+                    break;
+            }
+            if (!ValidateUltils.isRoleValid(inputRole)) {
+                System.out.println("Không đúng định dạng vui lòng nhập lại!!!");
+            }
+        } while (!ValidateUltils.isRoleValid(inputRole));
+        return inputRole;
     }
 }

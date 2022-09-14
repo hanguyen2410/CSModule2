@@ -15,41 +15,44 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrderManager {
-public List<Order> orders;
-private final static String PATCH_ODER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\Order.csv";
-public OrderManager(){
-    List<Order> orderList = new ArrayList<>();
-    this.orders = orderList;
-}
-public List<Order> findAll(){
-    List<Order> orders = new ArrayList<>();
-    List<String> lines = ReadFifeandWriteFile.read(PATCH_ODER);
-    for(String line : lines) {
-        orders.add(Order.parseOrder(line));
+    public List<Order> orders;
+    private final static String PATCH_ODER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\Order.csv";
+
+    public OrderManager() {
+        List<Order> orderList = new ArrayList<>();
+        this.orders = orderList;
     }
-    return orders;
-}
-public void renderOder(){
-    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋CUSTOMER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-//    System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", "ID Người Mua", "Tên người mua", "SĐT", "Địa chỉ", "Ngày Mua Hàng");
-    BufferedReader br = null;
-    try {
-        String line;
-        br = new BufferedReader(new FileReader(PATCH_ODER));
-        while ((line = br.readLine()) != null) {
-            printMenu(parseCsvLine(line));
+
+    public static List<Order> findAll() {
+        List<Order> orders = new ArrayList<>();
+        List<String> lines = ReadFifeandWriteFile.read(PATCH_ODER);
+        for (String line : lines) {
+            orders.add(Order.parseOrder(line));
         }
-    } catch (IOException e) {
-        e.printStackTrace();
-    } finally {
+        return orders;
+    }
+
+    public void renderOder() {
+        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋CUSTOMER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+//    System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", "ID Người Mua", "Tên người mua", "SĐT", "Địa chỉ", "Ngày Mua Hàng");
+        BufferedReader br = null;
         try {
-            if (br != null)
-                br.close();
+            String line;
+            br = new BufferedReader(new FileReader(PATCH_ODER));
+            while ((line = br.readLine()) != null) {
+                printMenu(parseCsvLine(line));
+            }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)
+                    br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
 
     public static List<String> parseCsvLine(String csvLine) {
         List<String> result = new ArrayList<>();
@@ -68,22 +71,22 @@ public void renderOder(){
         System.out.println("Tên người mua: " + Order.get(1));
         System.out.println("Số điện thoại: " + Order.get(2));
         System.out.println("Địa chỉ: " + Order.get(3));
-        System.out.println("Ngày và Giờ Mua Hàng: " +InstantUtils.instantToString(Instant.parse(Order.get(4))));
+        System.out.println("Ngày và Giờ Mua Hàng: " + InstantUtils.instantToString(Instant.parse(Order.get(4))));
     }
 
 
-public void addOrder(){
-    List<Order> orderPersons = new ArrayList<>();
-    Scanner input = new Scanner(System.in);
-    Long id = System.currentTimeMillis() / 1000;
-    String fullName = UserValidateUltils.inputFullName();
-    String phone = UserValidateUltils.inputPhone();
-    System.out.println("Nhập địa chỉ người mua hàng: ");
-    String address = input.nextLine();
-    Order newOrder = new Order(id,fullName,phone,address);
-    newOrder.setCreateAt(Instant.now());
-    orderPersons.add(newOrder);
-    ReadFifeandWriteFile.write(PATCH_ODER,orderPersons);
-}
+    public void addOrder() {
+        List<Order> orderPersons = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        Long id = System.currentTimeMillis() / 1000;
+        String fullName = UserValidateUltils.inputFullName();
+        String phone = UserValidateUltils.inputPhone();
+        System.out.println("Nhập địa chỉ người mua hàng: ");
+        String address = input.nextLine();
+        Order newOrder = new Order(id, fullName, phone, address);
+        newOrder.setCreateAt(Instant.now());
+        orderPersons.add(newOrder);
+        ReadFifeandWriteFile.write(PATCH_ODER, orderPersons);
+    }
 
 }

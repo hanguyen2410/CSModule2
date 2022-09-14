@@ -2,7 +2,8 @@ package models;
 
 import java.time.Instant;
 
-public class User {
+public class CreateUser {
+
     private Long id;
     private String username;
     private String password;
@@ -13,10 +14,10 @@ public class User {
     private String role;
     private Instant createdAt;
 
-    public User() {
+    public CreateUser() {
     }
 
-    public User(Long id, String username, String password, String fullName, String phone, String email, String address, String role) {
+    public CreateUser(Long id, String username, String password, String fullName, String phone, String email, String address, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -27,7 +28,7 @@ public class User {
         this.role = role;
     }
 
-    public User(Long id, String username, String password, String fullName, String phone, String email, String address, String role, Instant createdAt) {
+    public CreateUser(Long id, String username, String password, String fullName, String phone, String email, String address, String role, Instant createdAt) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -39,19 +40,19 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public static User parseUser(String raw) {
-        User user = new User();
+    public static CreateUser parseCreateUser(String raw) {
+        CreateUser createUser = new CreateUser();
         String[] fields = raw.split(",");
-        user.id = Long.parseLong(fields[0]);
-        user.username = fields[1];
-        user.password = fields[2];
-        user.fullName = fields[3];
-        user.phone = fields[4];
-        user.email = fields[5];
-        user.address = fields[6];
-        user.role = fields[7];
-        user.createdAt = Instant.parse(fields[8]);
-        return user;
+        createUser.id = Long.parseLong(fields[0]);
+        createUser.username = fields[1];
+        createUser.password = fields[2];
+        createUser.fullName = fields[3];
+        createUser.phone = fields[4];
+        createUser.email = fields[5];
+        createUser.address = fields[6];
+        createUser.role = fields[7];
+        createUser.createdAt = Instant.parse(fields[8]);
+        return createUser;
     }
 
     public Long getId() {
@@ -126,9 +127,8 @@ public class User {
         this.createdAt = createdAt;
     }
 
-
     @Override
     public String toString() {
-        return String.format("%d,%s,%s,%s,%s,%s,%s,%s,%s", id, username, password, fullName, phone, email, address, createdAt);
+        return String.format("%d,%s,%s,%s,%s,%s,%s,%s,%s", id, username, password, fullName, phone, email, address,role, createdAt);
     }
 }

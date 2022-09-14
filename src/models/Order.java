@@ -8,13 +8,17 @@ public class Order {
     private String phone;
     private String address;
     private Instant createAt;
-    public Order(){}
-    public Order(Long id, String fullName, String phone, String address){
+
+    public Order() {
+    }
+
+    public Order(Long id, String fullName, String phone, String address) {
         this.id = id;
         this.fullName = fullName;
         this.phone = phone;
         this.address = address;
     }
+
     public Order(Long id, String fullName, String phone, String address, Instant createAt) {
         this.id = id;
         this.fullName = fullName;
@@ -62,7 +66,8 @@ public class Order {
     public void setCreateAt(Instant createAt) {
         this.createAt = createAt;
     }
-    public static Order parseOrder(String raw){
+
+    public static Order parseOrder(String raw) {
         Order order = new Order();
         String[] fields = raw.split(",");
         order.id = Long.parseLong(fields[0]);
@@ -72,7 +77,8 @@ public class Order {
         order.createAt = Instant.parse(fields[4]);
         return order;
     }
-    public String toString(){
-        return String.format("%d,%s,%s,%s,%s",id,fullName,phone,address,createAt);
+
+    public String toString() {
+        return String.format("%d,%s,%s,%s,%s", id, fullName, phone, address, createAt);
     }
 }

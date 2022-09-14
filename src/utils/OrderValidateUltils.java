@@ -4,37 +4,40 @@ import java.util.Scanner;
 
 public class OrderValidateUltils {
     static Scanner input = new Scanner(System.in);
-    public static double inputPrice(){
+
+    public static double inputPrice() {
         double price = 0;
-        do{
+        do {
             System.out.println("Nhập giá vật phẩm (Giá phải lớn hơn 5000 VNĐ, Ví dụ : 6000) : ");
             price = Double.parseDouble(input.nextLine());
-            if(price<5000){
+            if (price < 5000) {
                 System.out.println("Số tiền quá thấp vui lòng nhập lại!!");
             }
-        }while (price<5000);
+        } while (price < 5000);
         return price;
     }
-    public static String inputFoodName(){
+
+    public static String inputFoodName() {
         String foodName = "";
         do {
             System.out.println("Nhập tên Món Ăn (Ví dụ Bún Bò Huế) : ");
             foodName = input.nextLine();
-            if(!ValidateUltils.isNameValid(foodName)){
+            if (!ValidateUltils.isNameValid(foodName)) {
                 System.out.println("Tên chưa đúng định dạng vui lòng nhập lại!!");
             }
-        }while (!ValidateUltils.isNameValid(foodName));
+        } while (!ValidateUltils.isNameValid(foodName));
         return foodName;
     }
-    public static Integer inputQuantity(){
+
+    public static Integer inputQuantity() {
         int quantity = 0;
         do {
             System.out.println("Nhập số lượng vật phẩm (không được < 1):");
             quantity = Integer.parseInt(input.nextLine());
-            if(quantity < 1){
+            if (quantity < 1) {
                 System.out.println("Số lượng không đúng quy định, vui lòng nhập lại!!");
             }
-        }while (quantity<1);
+        } while (quantity < 1);
         return quantity;
     }
 
