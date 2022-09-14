@@ -21,8 +21,10 @@ public class Checklogin {
         do {
             System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋Login㊋㊋㊋㊋㊋㊋㊋㊋");
             System.out.println("Nhập Username: ");
+            System.out.printf("︻┳═一 :");
             String userName = input.nextLine();
             System.out.println("Nhập Password: ");
+            System.out.printf("︻┳═一 :");
             String passWord = input.nextLine();
             for (User user : userList) {
                 String checkUser = user.getUsername();

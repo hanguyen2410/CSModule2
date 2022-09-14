@@ -95,5 +95,13 @@ public class DayOrderManager {
         }
         renderAllOrder();
     }
+    public static Double totalDayPrice() {
+        List<DayOrder> dayOrderList = findAll();
+        Double totalAllPirce = Double.valueOf(0);
+        for (DayOrder dayOrderItem : dayOrderList) {
+            totalAllPirce += dayOrderItem.getTotal();
+        }
+        return totalAllPirce;
+    }
 }
 

@@ -87,6 +87,7 @@ public class OrderItemManager {
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
         renderOrderItem();
+        System.out.println();
         System.out.println("Nhập y nếu muốn order tiếp hoặc p để in hóa đơn ");
         String choice = input.nextLine();
         switch (choice) {
@@ -261,6 +262,7 @@ public class OrderItemManager {
         List<OrderItem> orderItemList = findAll();
         List<Food> foods = FoodManager.findAll();
         renderOrderItem();
+        System.out.println();
         System.out.println("Nhập ID của vật phẩm muốn đổi: ");
         Long id = Long.parseLong(input.nextLine());
         int count = 0;
@@ -325,7 +327,8 @@ public class OrderItemManager {
                         orderItemList.remove(orderItem);
                         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
                         renderOrderItem();
-                        break;
+                        return;
+
                     case "b":
                         return;
                 }

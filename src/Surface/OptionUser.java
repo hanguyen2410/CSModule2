@@ -22,6 +22,7 @@ public class OptionUser {
             System.out.println("\uD83D\uDC8E " + "                                        " + " \uD83D\uDC8E ");
             System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
             System.out.println("Vui lòng nhập lựa chọn của bạn :");
+            System.out.printf("︻┳═一 :");
             choice = Integer.parseInt(scanner.nextLine());
             OrderManager orderManager = new OrderManager();
             OrderItemManager orderItemManager = new OrderItemManager();
@@ -36,6 +37,7 @@ public class OptionUser {
                     System.out.println();
                     System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                     System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                    System.out.printf("︻┳═一 :");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
@@ -48,6 +50,7 @@ public class OptionUser {
                         default:
                             System.out.println("Vui Lòng Nhập Lại!");
                             System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                     }
                     break;
@@ -58,6 +61,7 @@ public class OptionUser {
                     System.out.println();
                     System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                     System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                    System.out.printf("︻┳═一 :");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
@@ -70,12 +74,14 @@ public class OptionUser {
                         default:
                             System.out.println("Vui Lòng Nhập Lại!");
                             System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                     }
                     break;
                 case 3:
                     orderItemManager.editOrderItem();
                     System.out.println("Nhấn 1 để in hóa đơn hoặc 2 để về menu chính và 0 để thoát !! ");
+                    System.out.printf("︻┳═一 :");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
@@ -85,6 +91,7 @@ public class OptionUser {
                             System.out.println();
                             System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                             System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice){
                                 case 1:
@@ -97,6 +104,7 @@ public class OptionUser {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
@@ -110,6 +118,7 @@ public class OptionUser {
                         default:
                             System.out.println("Vui Lòng Nhập Lại!");
                             System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                     }
                     break;

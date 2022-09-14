@@ -33,7 +33,9 @@ public class CreateUserManager {
         createUsers.add(newUser);
         ReadFifeandWriteFile.write(PATCH_CREATEUSER, createUsers);
         List<User> users = UserManager.findAll();
-        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv", createUsers);
+        User newUser1 = new User(id,userName,passWord,fullName,phone,email,address,role);
+        users.add(newUser1);
+        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv", users);
         System.out.println("Đã tạo thành công !!");
         renderCreateUser();
     }

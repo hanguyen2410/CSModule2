@@ -1,6 +1,7 @@
 package Tools;
 
 import models.AllOrder;
+import models.OrderItem;
 import utils.InstantUtils;
 
 import java.io.BufferedReader;
@@ -61,5 +62,12 @@ public class AllOrderManager {
     public static void printMenu(List<String> AllOder) {
         System.out.printf("\n\t%-16s %-36s %-26s %-16s %-26s %-15s %s\n\n", AllOder.get(0), AllOder.get(1), InstantUtils.doubleToVND(Double.parseDouble(AllOder.get(2))), AllOder.get(3), InstantUtils.doubleToVND(Double.parseDouble(AllOder.get(4))), InstantUtils.instantToString(Instant.parse(AllOder.get(5))), "㊋");
     }
-
+    public static Double totalAllPrice() {
+        List<AllOrder> allOrderList = findAll();
+        Double totalAllPirce = Double.valueOf(0);
+        for (AllOrder allOrderItem : allOrderList) {
+            totalAllPirce += allOrderItem.getTotal();
+        }
+        return totalAllPirce;
+    }
 }

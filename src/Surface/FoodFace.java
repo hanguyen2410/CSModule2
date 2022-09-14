@@ -1,17 +1,14 @@
 package Surface;
 
 import Tools.*;
-import models.OrderItem;
-import models.User;
-
+import utils.InstantUtils;
 import java.util.Scanner;
 
 public class FoodFace {
-    public static int choice = -1;
 
 
     public static void optionSadmin() {
-
+        int choice = -1;
         while (choice != 0 && choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7 && choice != 8) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
@@ -23,6 +20,7 @@ public class FoodFace {
             System.out.println("\uD83D\uDC8E " + "                                         " + " \uD83D\uDC8E ");
             System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
             System.out.println("Vui lòng nhập lựa chọn của bạn :");
+            System.out.printf("︻┳═一 :");
             choice = Integer.parseInt(scanner.nextLine());
             RenderList renderList = new RenderList();
             switch (choice) {
@@ -30,11 +28,13 @@ public class FoodFace {
                     renderList.renderMenuManager();
                     FoodManager foodManager = new FoodManager();
                     System.out.println("Vui lòng nhập lựa chọn của bạn: ");
+                    System.out.printf("︻┳═一 :");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
                             foodManager.renderFood();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
@@ -47,6 +47,7 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
@@ -54,6 +55,7 @@ public class FoodFace {
                         case 2:
                             foodManager.addFood();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
@@ -66,12 +68,14 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 3:
                             foodManager.deleteFood();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
@@ -84,16 +88,18 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 4:
                             foodManager.editFood();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -102,10 +108,11 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                                     switch (choice) {
                                         case 1:
-                                            choice = -1;
+                                            FoodFace.optionSadmin();
                                             break;
                                         case 0:
                                             System.out.println("Hẹn Gặp Lại!!!");
@@ -117,10 +124,11 @@ public class FoodFace {
                         case 5:
                             foodManager.findFoodName();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -129,16 +137,18 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 6:
                             foodManager.sortAscending();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -147,16 +157,18 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 7:
                             foodManager.sortDescending();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -165,11 +177,12 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 8:
-                            choice = -1;
+                            FoodFace.optionSadmin();
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -184,11 +197,13 @@ public class FoodFace {
                     renderList.renderUserManager();
                     UserManager user = new UserManager();
                     System.out.println("Vui lòng nhập lựa chọn của bạn: ");
+                    System.out.printf("︻┳═一 :");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
-                            user.addUser();
+                            UserManager.addUser();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
@@ -201,6 +216,7 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
@@ -210,7 +226,7 @@ public class FoodFace {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -219,16 +235,18 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 3:
-                            user.renderUser();
+                            UserManager.renderUser();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -237,16 +255,18 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 4:
                             user.deleteUser();
                             System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -255,11 +275,12 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 5:
-                            choice = -1;
+                            FoodFace.optionSadmin();
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -277,15 +298,21 @@ public class FoodFace {
                     AllOrderManager allOrderManager = new AllOrderManager();
                     DayOrderManager dayOrderManager = new DayOrderManager();
                     System.out.println("Vui lòng nhập lựa chọn của bạn: ");
+                    System.out.printf("︻┳═一 :");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1: //hiển thị tổng oder
                             allOrderManager.renderAllOrder();
+                            System.out.println();
+                            System.out.println("                                                  Tổng Cộng : " + InstantUtils.doubleToVND(AllOrderManager.totalAllPrice()));
+                            System.out.println();
+                            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                             System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -294,16 +321,22 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 2: // hiển thị order theo ngày
                             dayOrderManager.SortByDayOrder();
+                            System.out.println();
+                            System.out.println("                                                  Tổng Cộng : " + InstantUtils.doubleToVND(DayOrderManager.totalDayPrice()));
+                            System.out.println();
+                            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                             System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -312,6 +345,7 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
@@ -321,14 +355,15 @@ public class FoodFace {
                             orderManager.renderOder();
                             orderItemManager.renderOrderItem();
                             System.out.println();
-                            System.out.println("                                      Tổng Cộng : " + orderItemManager.totalPrice());
+                            System.out.println("                                      Tổng Cộng : " + InstantUtils.doubleToVND(orderItemManager.totalPrice()));
                             System.out.println();
                             System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
                             System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -337,20 +372,43 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 4:// sửa đơn đặt hàng
                             orderItemManager.editOrderItem();
                             System.out.println("Nhấn 1 để in hóa đơn hoặc 2 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
                                     orderManager.renderOder();
                                     orderItemManager.renderOrderItem();
+                                    System.out.println();
+                                    System.out.println("                                      Tổng Cộng : " + InstantUtils.doubleToVND(orderItemManager.totalPrice()));
+                                    System.out.println();
+                                    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+                                    System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
+                                    System.out.printf("︻┳═一 :");
+                                    choice = Integer.parseInt(scanner.nextLine());
+                                    switch (choice){
+                                        case 1:
+                                            FoodFace.optionSadmin();
+                                            break;
+                                        case 0:
+                                            System.out.println("Hẹn Gặp Lại!!!");
+                                            System.exit(0);
+                                            break;
+                                        default:
+                                            System.out.println("Vui Lòng Nhập Lại!");
+                                            System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                            System.out.printf("︻┳═一 :");
+                                            choice = Integer.parseInt(scanner.nextLine());
+                                    }
                                     break;
                                 case 2:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -359,12 +417,14 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 5: //xóa đơn đặt hàng
                             orderItemManager.deleteOrderItem();
                             System.out.println("Nhấn 1 để in hóa đơn hoặc 2 để về menu chính và 0 để thoát !! ");
+                            System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
@@ -372,7 +432,7 @@ public class FoodFace {
                                     orderItemManager.renderOrderItem();
                                     break;
                                 case 2:
-                                    choice = -1;
+                                    FoodFace.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -381,11 +441,12 @@ public class FoodFace {
                                 default:
                                     System.out.println("Vui Lòng Nhập Lại!");
                                     System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
+                                    System.out.printf("︻┳═一 :");
                                     choice = Integer.parseInt(scanner.nextLine());
                             }
                             break;
                         case 6:
-                            choice = -1;
+                            FoodFace.optionSadmin();
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -402,7 +463,7 @@ public class FoodFace {
                     break;
                 default:
                     System.out.println("Vui Lòng Nhập Lại!");
-                    choice = -1;
+                    FoodFace.optionSadmin();
 
             }
         }

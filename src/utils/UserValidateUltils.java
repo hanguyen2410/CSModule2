@@ -11,7 +11,7 @@ public class UserValidateUltils {
     public static String inputUserName() {
         String userName = "";
         do {
-            System.out.println("Nhập username muốn tạo: ");
+            System.out.println("Nhập username muốn tạo hoặc sửa (bao gồm 6 ký tự): ");
             userName = input.nextLine();
             if (!ValidateUltils.isUsernameValid(userName)) {
                 System.out.println("Tên không đúng quy định vui lòng nhập lại !!");
@@ -103,4 +103,5 @@ public class UserValidateUltils {
         } while (!ValidateUltils.isRoleValid(choice));
         return inputRole;
     }
+
 }

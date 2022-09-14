@@ -1,5 +1,6 @@
 package Tools;
 
+import Surface.FoodFace;
 import models.User;
 import utils.InstantUtils;
 import utils.UserValidateUltils;
@@ -141,6 +142,7 @@ public class UserManager {
                 }
                 break;
             case "b":
+                FoodFace.optionSadmin();
                 break;
             default:
                 System.out.println("Vui lòng nhập lại!!");
