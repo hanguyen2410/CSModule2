@@ -40,5 +40,4 @@ public class OrderValidateUltils {
         } while (quantity < 1);
         return quantity;
     }
-
 }

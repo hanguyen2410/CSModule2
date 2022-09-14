@@ -77,6 +77,7 @@ public class UserValidateUltils {
 
     public static String inputRole() {
         String inputRole = "";
+        String choice = "";
         do {
             System.out.println("㊋㊋㊋㊋㊋㊋ROLE㊋㊋㊋㊋㊋㊋㊋");
             System.out.println("        " + "1.SADMIN" + "       ㊋");
@@ -84,8 +85,8 @@ public class UserValidateUltils {
             System.out.println("        " + "3.USER" + "         ㊋ ");
             System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
             System.out.println("Chọn role bạn muốn thêm : ");
-            inputRole = input.nextLine();
-            switch (inputRole) {
+            choice = input.nextLine();
+            switch (choice) {
                 case "1":
                     inputRole = "SADMIN";
                     break;
@@ -96,10 +97,10 @@ public class UserValidateUltils {
                     inputRole = "USER";
                     break;
             }
-            if (!ValidateUltils.isRoleValid(inputRole)) {
+            if (!ValidateUltils.isRoleValid(choice)) {
                 System.out.println("Không đúng định dạng vui lòng nhập lại!!!");
             }
-        } while (!ValidateUltils.isRoleValid(inputRole));
+        } while (!ValidateUltils.isRoleValid(choice));
         return inputRole;
     }
 }

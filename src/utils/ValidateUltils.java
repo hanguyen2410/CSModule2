@@ -8,7 +8,8 @@ public class ValidateUltils {
     public static final String USERNAME_PATTERN = "^\\S{6,}$";
     public static final String EMAIL_PATTERN = "^[A-Za-z0-9.]*[A-Za-z0-9]+@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
     public static final String PHONE_PATTERN = "^[0][1-9][0-9]{8}$";
-    public static final String ROLE_PATTERN = "^[1-3]$";
+    public static final String CHOICE_PATTERN = "^[1-3]$";
+    public static final String LOGINCHOICE_PATTERN = "^[1-2]$";
 
     public static boolean isPassswordValid(String password) {
         return Pattern.compile(PASSWORD_PATTERN).matcher(password).matches();
@@ -31,6 +32,9 @@ public class ValidateUltils {
     }
 
     public static boolean isRoleValid(String role) {
-        return Pattern.compile(ROLE_PATTERN).matcher(role).matches();
+        return Pattern.compile(CHOICE_PATTERN).matcher(role).matches();
+    }
+    public static boolean isLoginValid(String login){
+        return Pattern.compile(LOGINCHOICE_PATTERN).matcher(login).matches();
     }
 }

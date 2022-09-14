@@ -129,6 +129,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%d,%s,%s,%s,%s,%s,%s,%s,%s", id, username, password, fullName, phone, email, address, createdAt);
+        return String.format("%d,%s,%s,%s,%s,%s,%s,%s,%s", id, username, password, fullName, phone, email, address,role, createdAt);
     }
 }
