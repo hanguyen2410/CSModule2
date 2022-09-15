@@ -44,7 +44,7 @@ public class OptionSadmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionSadmin.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -65,7 +65,7 @@ public class OptionSadmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionSadmin.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -85,7 +85,7 @@ public class OptionSadmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionSadmin.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -213,7 +213,7 @@ public class OptionSadmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionSadmin.optionSadmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
