@@ -10,6 +10,7 @@ public class ValidateUltils {
     public static final String PHONE_PATTERN = "^[0][1-9][0-9]{8}$";
     public static final String CHOICE_PATTERN = "^[1-3]$";
     public static final String LOGINCHOICE_PATTERN = "^[1-2]$";
+    public static final String QUANTITY_PATTERN = "^[1-100000]$";
 
     public static boolean isPassswordValid(String password) {
         return Pattern.compile(PASSWORD_PATTERN).matcher(password).matches();
@@ -36,5 +37,8 @@ public class ValidateUltils {
     }
     public static boolean isLoginValid(String login){
         return Pattern.compile(LOGINCHOICE_PATTERN).matcher(login).matches();
+    }
+    public static boolean isQuantityValid(String role) {
+        return Pattern.compile(QUANTITY_PATTERN).matcher(role).matches();
     }
 }

@@ -1,7 +1,5 @@
 package Tools;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-import models.AllOrder;
 import models.Food;
 import models.OrderItem;
 import utils.InstantUtils;
@@ -10,7 +8,6 @@ import utils.OrderValidateUltils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,14 +16,13 @@ import java.util.Scanner;
 public class OrderItemManager {
     List<OrderItem> orderItems;
     private final static String PATCH_ORDERITEM = "D:\\vscode\\module2\\CSModule2\\CSModule2\\OrderItem.csv";
-    private final static String PATCH_ALLORDER  = "D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv";
     private final static String PATH_FOODMENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv";
     public OrderItemManager() {
         List<OrderItem> orderItemList = new ArrayList<>();
         this.orderItems = orderItemList;
     }
 
-    public List<OrderItem> findAll() {
+    public static List<OrderItem> findAll() {
         List<OrderItem> orderItems = new ArrayList<>();
         List<String> lines = ReadFifeandWriteFile.read(PATCH_ORDERITEM);
         for (String line : lines) {
@@ -80,11 +76,7 @@ public class OrderItemManager {
         }
         OrderItem newOrder = new OrderItem(id, nameFood, price, quantity, total);
         orderItems.add(newOrder);
-        Instant createAt = Instant.now();
-        List<AllOrder> allOrders = AllOrderManager.findAll();
-        AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
-        allOrders.add(allOrder);
-        ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
+
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
         renderOrderItem();
@@ -163,17 +155,10 @@ public class OrderItemManager {
                     updateOrderItem();
                     return;
                 }
-//                OrderItem newOrder = new OrderItem(id, nameFood, price, orderItem.getQuantity(), total);
-//                orderItemList.add(newOrder);
                 orderItem.setQuantity(orderItem.getQuantity());
                 orderItem.setNameFood(nameFood);
                 orderItem.setPrice(price);
                 orderItem.setTotal(total);
-                Instant createAt = Instant.now();
-                List<AllOrder> allOrders = AllOrderManager.findAll();
-                AllOrder allOrder = new AllOrder(id, nameFood, price, quantityUpdate, total, createAt);
-                allOrders.add(allOrder);
-                ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
                 ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
                 renderOrderItem();
                 System.out.println("Order thành công!");
@@ -213,11 +198,6 @@ public class OrderItemManager {
         }
         OrderItem newOrder = new OrderItem(id, nameFood, price, quantity, total);
         orderItems.add(newOrder);
-        Instant createAt = Instant.now();
-        List<AllOrder> allOrders = AllOrderManager.findAll();
-        AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
-        allOrders.add(allOrder);
-        ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         renderOrderItem();
         System.out.println("Order thành công!");
@@ -290,10 +270,48 @@ public class OrderItemManager {
             long idEdit = 0;
             int quantity = 0;
             if (tamp.equals(id)) {
+                orderItemList.remove(orderItem);
                 FoodManager render = new FoodManager();
                 render.renderFood();
                 System.out.println("Nhập ID của vật phẩm mới: ");
                 idEdit = Long.parseLong(input.nextLine());
+                for (OrderItem orderItemEdit : orderItemList) {
+                    Long tampSame = orderItemEdit.getId();
+                    if (tampSame.equals(idEdit)) {
+                        List<OrderItem> orderItemListEdit = findAll();
+                        price = orderItemEdit.getPrice();
+                        name = orderItemEdit.getNameFood();
+                        count++;
+                        int quantityUpdate = OrderValidateUltils.inputQuantity();
+                        int countQuantity = 0;
+                        if (orderItemEdit.getId().equals(idEdit))
+                            orderItemEdit.setQuantity(orderItemEdit.getQuantity() + quantityUpdate);
+                        total = orderItemEdit.getPrice() * orderItemEdit.getQuantity();
+                        for (Food dish : foods) {
+                            int tampQuantity = dish.getQuantity();
+                            Long tampid = dish.getId();
+                            if (tampid.equals(id) && tampQuantity >= quantityUpdate) {
+                                dish.setQuantity(dish.getQuantity() - quantityUpdate);
+                                ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
+                                countQuantity++;
+                            }
+                        }
+                        if (countQuantity == 0) {
+                            System.out.println("Số lượng không đủ vui lòng nhập lại!!");
+                            updateOrderItem();
+                            return;
+                        }
+
+                        orderItemEdit.setQuantity(orderItemEdit.getQuantity());
+                        orderItemEdit.setNameFood(name);
+                        orderItemEdit.setPrice(price);
+                        orderItemEdit.setTotal(total);
+                        ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
+                        renderOrderItem();
+                        System.out.println("Chỉnh sửa thành công!!");
+                        return;
+                    }
+                }
                 for (Food dish : foods) {
                     Long tampFood = dish.getId();
                     if (tampFood.equals(idEdit)) {
@@ -319,6 +337,7 @@ public class OrderItemManager {
 
                 ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
                 renderOrderItem();
+                System.out.println("Chỉnh sửa thành công!!");
                 break;
             }
 

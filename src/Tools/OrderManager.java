@@ -1,8 +1,7 @@
 package Tools;
 
 import models.Order;
-import models.OrderItem;
-import models.User;
+
 import utils.InstantUtils;
 import utils.UserValidateUltils;
 
@@ -34,7 +33,6 @@ public class OrderManager {
 
     public void renderOder() {
         System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋CUSTOMER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-//    System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", "ID Người Mua", "Tên người mua", "SĐT", "Địa chỉ", "Ngày Mua Hàng");
         BufferedReader br = null;
         try {
             String line;
@@ -66,7 +64,6 @@ public class OrderManager {
     }
 
     public static void printMenu(List<String> Order) {
-//        System.out.printf("\n%-25s %-25s %-25s %-25s %s\n", Order.get(0), Order.get(1),Order.get(2), Order.get(3), InstantUtils.instantToString(Instant.parse(Order.get(4))));
         System.out.println("ID Người Mua: " + Order.get(0));
         System.out.println("Tên người mua: " + Order.get(1));
         System.out.println("Số điện thoại: " + Order.get(2));

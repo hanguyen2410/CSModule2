@@ -1,6 +1,6 @@
 package Check;
 
-import Surface.FoodFace;
+import Surface.OptionSadmin;
 import Surface.OptionAdmin;
 import Surface.OptionUser;
 import Tools.UserManager;
@@ -33,7 +33,7 @@ public class Checklogin {
                     if (checkRole.equals("SADMIN")) {
                         System.out.println("     "+"Chào SADMIN " + user.getFullName());
                         System.out.println("     "+"Đăng Nhập Thành Công!!");
-                        FoodFace.optionSadmin();
+                        OptionSadmin.optionSadmin();
                         break;
                     }
                     if (checkRole.equals("ADMIN")) {

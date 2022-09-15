@@ -1,12 +1,10 @@
 package Tools;
 
-import Surface.FoodFace;
 import models.Food;
 import utils.InstantUtils;
 import utils.OrderValidateUltils;
 
 import java.io.*;
-import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -50,7 +48,7 @@ public class FoodManager {
 //        }
 //        return false;
 //    }
-    public boolean checkNameInTheList(String name) {
+    public static boolean checkNameInTheList(String name) {
         List<Food> foods = findAll();
         if (!foods.isEmpty()) {
             for (Food dish : foods) {
@@ -64,7 +62,7 @@ public class FoodManager {
     }
 
 
-    public void addFood() {
+    public static void addFood() {
         List<Food> foods = findAll();
         Scanner input = new Scanner(System.in);
         renderFood();
@@ -77,10 +75,10 @@ public class FoodManager {
         ReadFifeandWriteFile.write(PATCH_MENU, foods);
         System.out.println("Đã thêm thành công!!");
         renderFood();
-
+        return;
     }
 
-    public void renderFood() {
+    public static void renderFood() {
         System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋MENU㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
         System.out.printf("\n\t%-16s %-36s %-26s %-10s %s\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng", "㊋");
         BufferedReader br = null;

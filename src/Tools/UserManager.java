@@ -1,10 +1,9 @@
 package Tools;
 
-import Surface.FoodFace;
+import Surface.OptionSadmin;
 import models.User;
 import utils.InstantUtils;
 import utils.UserValidateUltils;
-import utils.ValidateUltils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,9 +12,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import static utils.UserValidateUltils.inputFullName;
-import static utils.UserValidateUltils.inputRole;
 
 public class UserManager {
     private final static String PATCH_USER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv";
@@ -142,7 +138,7 @@ public class UserManager {
                 }
                 break;
             case "b":
-                FoodFace.optionSadmin();
+                OptionSadmin.optionSadmin();
                 break;
             default:
                 System.out.println("Vui lòng nhập lại!!");

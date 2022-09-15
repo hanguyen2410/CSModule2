@@ -1,5 +1,8 @@
 package utils;
 
+import Tools.FoodManager;
+import Tools.UserManager;
+
 import java.util.Scanner;
 
 public class OrderValidateUltils {
@@ -24,6 +27,11 @@ public class OrderValidateUltils {
             foodName = input.nextLine();
             if (!ValidateUltils.isNameValid(foodName)) {
                 System.out.println("Tên chưa đúng định dạng vui lòng nhập lại!!");
+            }
+            if (FoodManager.checkNameInTheList(foodName)) {
+                System.out.println("Tên món ăn đã có, vui lòng nhập lại !!");
+                FoodManager.addFood();
+                break;
             }
         } while (!ValidateUltils.isNameValid(foodName));
         return foodName;
