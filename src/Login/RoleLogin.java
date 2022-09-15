@@ -1,6 +1,7 @@
 package Login;
 
-import CheckLogin.Checklogin;
+import Check.Checklogin;
+import Check.PasswordFogot;
 import Tools.CreateUserManager;
 
 import java.util.Scanner;
@@ -17,6 +18,7 @@ public class RoleLogin {
             System.out.println("                                             ㊋");
             System.out.println("                  " + "1. Login" + "                   ㊋");
             System.out.println("             " + "2. Create Account" + "               ㊋");
+            System.out.println("             " + "3. Fogot Password" + "               ㊋");
             System.out.println("                                             ㊋");
             System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
             System.out.println("Nhập lựa chọn của bạn: ");
@@ -37,7 +39,28 @@ public class RoleLogin {
                         case "1":
                             choice = "-2";
                             break;
-                        case "2":
+                        case "0":
+                            System.out.println("Hẹn Gặp Lại!!!");
+                            System.exit(0);
+                            break;
+                        default:
+                            System.out.println("Vui Lòng Nhập Lại!!");
+                            System.out.println("Nhấn 1 để về menu Login hoặc 0 để thoát!");
+                            System.out.printf("︻┳═一 : ");
+                            choice = input.nextLine();
+                    }
+                    break;
+                case "3":
+                    PasswordFogot passwordFogot = new PasswordFogot();
+                    passwordFogot.CheckEmail();
+                    System.out.println("Nhấn 1 để về menu Login hoặc 0 để thoát!");
+                    System.out.printf("︻┳═一 :");
+                    choice = input.nextLine();
+                    switch (choice) {
+                        case "1":
+                            choice = "-2";
+                            break;
+                        case "0":
                             System.out.println("Hẹn Gặp Lại!!!");
                             System.exit(0);
                             break;
