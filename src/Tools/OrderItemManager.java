@@ -20,6 +20,7 @@ public class OrderItemManager {
     List<OrderItem> orderItems;
     private final static String PATCH_ORDERITEM = "D:\\vscode\\module2\\CSModule2\\CSModule2\\OrderItem.csv";
     private final static String PATCH_ALLORDER  = "D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv";
+    private final static String PATH_FOODMENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv";
     public OrderItemManager() {
         List<OrderItem> orderItemList = new ArrayList<>();
         this.orderItems = orderItemList;
@@ -68,7 +69,7 @@ public class OrderItemManager {
             if (tamp.equals(id) && tampQuantity >= quantity) {
                 total = dish.getPrice() * quantity;
                 dish.setQuantity(dish.getQuantity() - quantity);
-                ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv", foods);
+                ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
                 countQuantity++;
             }
         }
@@ -139,12 +140,11 @@ public class OrderItemManager {
         for (OrderItem orderItem : orderItems) {
             Long tampSame = orderItem.getId();
             if (tampSame.equals(id)) {
-                List<OrderItem> orderItemList = new ArrayList<>();
+                List<OrderItem> orderItemList = findAll();
                 price = orderItem.getPrice();
                 nameFood = orderItem.getNameFood();
                 count++;
                 int quantityUpdate = OrderValidateUltils.inputQuantity();
-
                 int countQuantity = 0;
                 if (orderItem.getId().equals(id))
                     orderItem.setQuantity(orderItem.getQuantity() + quantityUpdate);
@@ -154,7 +154,7 @@ public class OrderItemManager {
                     Long tampid = dish.getId();
                     if (tampid.equals(id) && tampQuantity >= quantityUpdate) {
                         dish.setQuantity(dish.getQuantity() - quantityUpdate);
-                        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv", foods);
+                        ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
                         countQuantity++;
                     }
                 }
@@ -163,14 +163,18 @@ public class OrderItemManager {
                     updateOrderItem();
                     return;
                 }
-                OrderItem newOrder = new OrderItem(id, nameFood, price, orderItem.getQuantity(), total);
-                orderItemList.add(newOrder);
+//                OrderItem newOrder = new OrderItem(id, nameFood, price, orderItem.getQuantity(), total);
+//                orderItemList.add(newOrder);
+                orderItem.setQuantity(orderItem.getQuantity());
+                orderItem.setNameFood(nameFood);
+                orderItem.setPrice(price);
+                orderItem.setTotal(total);
                 Instant createAt = Instant.now();
                 List<AllOrder> allOrders = AllOrderManager.findAll();
                 AllOrder allOrder = new AllOrder(id, nameFood, price, quantityUpdate, total, createAt);
                 allOrders.add(allOrder);
-                ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
-                ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
+                ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
+                ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
                 renderOrderItem();
                 System.out.println("Order thành công!");
                 return;
@@ -197,7 +201,7 @@ public class OrderItemManager {
             if (tampid.equals(id) && tampQuantity >= quantity) {
                 total = dish.getPrice() * quantity;
                 dish.setQuantity(dish.getQuantity() - quantity);
-                ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv", foods);
+                ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
                 countQuantity++;
             }
 
@@ -213,7 +217,7 @@ public class OrderItemManager {
         List<AllOrder> allOrders = AllOrderManager.findAll();
         AllOrder allOrder = new AllOrder(id, nameFood, price, quantity, total, createAt);
         allOrders.add(allOrder);
-        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv", allOrders);
+        ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         renderOrderItem();
         System.out.println("Order thành công!");
@@ -258,6 +262,7 @@ public class OrderItemManager {
     }
 
     public void editOrderItem() {
+
         Scanner input = new Scanner(System.in);
         List<OrderItem> orderItemList = findAll();
         List<Food> foods = FoodManager.findAll();
@@ -265,6 +270,17 @@ public class OrderItemManager {
         System.out.println();
         System.out.println("Nhập ID của vật phẩm muốn đổi: ");
         Long id = Long.parseLong(input.nextLine());
+        for (OrderItem orderItem : orderItemList) {
+            if(orderItem.getId().equals(id)){
+                for (Food dish : foods) {
+                    Long tampOldQuantity = dish.getId();
+                    if (tampOldQuantity.equals(id)) {
+                        dish.setQuantity(dish.getQuantity() + orderItem.getQuantity());
+                        ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
+                    }
+                }
+            }
+            }
         int count = 0;
         for (OrderItem orderItem : orderItemList) {
             Long tamp = orderItem.getId();
@@ -290,19 +306,25 @@ public class OrderItemManager {
                     Long tamp1 = dish.getId();
                     if (tamp1.equals(idEdit)) {
                         total = dish.getPrice() * quantity;
+                        dish.setQuantity(dish.getQuantity() - quantity);
+                        ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
                     }
                 }
+                orderItem.setId(idEdit);
+                orderItem.setNameFood(name);
+                orderItem.setPrice(price);
+                orderItem.setQuantity(quantity);
+                orderItem.setTotal(total);
+                count++;
+
+                ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
+                renderOrderItem();
+                break;
             }
-            orderItem.setId(idEdit);
-            orderItem.setNameFood(name);
-            orderItem.setPrice(price);
-            orderItem.setQuantity(quantity);
-            orderItem.setTotal(total);
-            count++;
-            ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
-            renderOrderItem();
-            break;
+
+
         }
+
         if (count == 0) {
             System.out.println("ID không tồn tại vui lòng nhập lại!");
             editOrderItem();
@@ -310,6 +332,7 @@ public class OrderItemManager {
     }
 
     public void deleteOrderItem() {
+        List<Food> foods = FoodManager.findAll();
         Scanner input = new Scanner(System.in);
         List<OrderItem> orderItemList = findAll();
         renderOrderItem();
@@ -324,6 +347,13 @@ public class OrderItemManager {
                 String choice = input.nextLine();
                 switch (choice) {
                     case "y":
+                        for (Food dish:foods ) {
+                            Long tampOldDish = dish.getId();
+                            if(tampOldDish.equals(id)){
+                                dish.setQuantity(dish.getQuantity() + orderItem.getQuantity());
+                                ReadFifeandWriteFile.write(PATH_FOODMENU, foods);
+                            }
+                        }
                         orderItemList.remove(orderItem);
                         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItemList);
                         renderOrderItem();
