@@ -41,7 +41,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -61,7 +61,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -81,7 +81,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -101,7 +101,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -114,7 +114,7 @@ public class OptionAdmin {
                                     choice = Integer.parseInt(scanner.nextLine());
                                     switch (choice) {
                                         case 1:
-                                            choice = -1;
+                                            OptionAdmin.optionAdmin();
                                             break;
                                         case 0:
                                             System.out.println("Hẹn Gặp Lại!!!");
@@ -130,7 +130,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -150,7 +150,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -170,7 +170,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -184,7 +184,7 @@ public class OptionAdmin {
                             }
                             break;
                         case 8:
-                            choice = -1;
+                            OptionAdmin.optionAdmin();
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -215,7 +215,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -239,7 +239,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -275,7 +275,7 @@ public class OptionAdmin {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice) {
                                 case 1:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -315,7 +315,7 @@ public class OptionAdmin {
                                     choice = Integer.parseInt(scanner.nextLine());
                                     switch (choice) {
                                         case 1:
-                                            OptionSadmin.optionSadmin();
+                                            OptionAdmin.optionAdmin();
                                             break;
                                         case 0:
                                             System.out.println("Hẹn Gặp Lại!!!");
@@ -329,7 +329,7 @@ public class OptionAdmin {
                                     }
                                     break;
                                 case 2:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -369,7 +369,7 @@ public class OptionAdmin {
                                     choice = Integer.parseInt(scanner.nextLine());
                                     switch (choice) {
                                         case 1:
-                                            OptionSadmin.optionSadmin();
+                                            OptionAdmin.optionAdmin();
                                             break;
                                         case 0:
                                             System.out.println("Hẹn Gặp Lại!!!");
@@ -383,7 +383,7 @@ public class OptionAdmin {
                                     }
                                     break;
                                 case 2:
-                                    choice = -1;
+                                    OptionAdmin.optionAdmin();
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -397,7 +397,7 @@ public class OptionAdmin {
                             }
                             break;
                         case 6:
-                            choice = -1;
+                            OptionAdmin.optionAdmin();
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -414,7 +414,7 @@ public class OptionAdmin {
                     break;
                 default:
                     System.out.println("Vui Lòng Nhập Lại!");
-                    choice = -1;
+                    OptionAdmin.optionAdmin();
 
             }
         }

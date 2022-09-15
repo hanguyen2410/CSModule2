@@ -51,7 +51,7 @@ public class OptionUser {
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
-                            choice = -1;
+                            OptionUser.optionUser();
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -75,7 +75,7 @@ public class OptionUser {
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
-                            choice = -1;
+                            OptionUser.optionUser();;
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -113,7 +113,7 @@ public class OptionUser {
                             choice = Integer.parseInt(scanner.nextLine());
                             switch (choice){
                                 case 1:
-                                    choice = -1;
+                                    OptionUser.optionUser();;
                                     break;
                                 case 0:
                                     System.out.println("Hẹn Gặp Lại!!!");
@@ -127,7 +127,7 @@ public class OptionUser {
                             }
                             break;
                         case 2:
-                            choice = -1;
+                            OptionUser.optionUser();;
                             break;
                         case 0:
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -182,7 +182,7 @@ public class OptionUser {
                     break;
                 default:
                     System.out.println("Vui Lòng Nhập Lại!");
-                    choice = -1;
+                    OptionUser.optionUser();;
             }
         }
     }
