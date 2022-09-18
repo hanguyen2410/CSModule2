@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserManager {
-    private final static String PATCH_USER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv";
+    private final static String PATCH_USER = "D:\\vscode\\module2\\TestCSM2\\data\\User.csv";
 
     public static List<User> findAll() {
         List<User> users = new ArrayList<>();

@@ -2,7 +2,7 @@ package models;
 
 import java.time.Instant;
 
-public class DayOrder {
+public class ShowOldOrderUser {
     private Long idCustomer;
     private String nameCustomer;
     private String phone;
@@ -14,10 +14,10 @@ public class DayOrder {
     private Double total;
     private Instant createAt;
 
-    public DayOrder() {
+    public ShowOldOrderUser() {
     }
 
-    public DayOrder(Long idCustomer, String nameCustomer, String phone, String address, Long iditem, String nameFood, double price, int quantity, Double total, Instant createAt) {
+    public ShowOldOrderUser(Long idCustomer, String nameCustomer, String phone, String address, Long iditem, String nameFood, double price, int quantity, Double total, Instant createAt) {
         this.idCustomer = idCustomer;
         this.nameCustomer = nameCustomer;
         this.phone = phone;
@@ -29,21 +29,20 @@ public class DayOrder {
         this.total = total;
         this.createAt = createAt;
     }
-
-    public static DayOrder ParseDayOrder(String raw) {
-        DayOrder dayOrder = new DayOrder();
+    public static ShowOldOrderUser ParseShowOldOrderUser(String raw) {
+        ShowOldOrderUser showOldOrderUser = new ShowOldOrderUser();
         String[] fields = raw.split(",");
-        dayOrder.idCustomer = Long.parseLong(fields[0]);
-        dayOrder.nameCustomer = fields[1];
-        dayOrder.phone = fields[2];
-        dayOrder.address = fields[3];
-        dayOrder.iditem = Long.parseLong(fields[4]);
-        dayOrder.nameFood = fields[5];
-        dayOrder.price = Double.parseDouble(fields[6]);
-        dayOrder.quantity = Integer.parseInt(fields[7]);
-        dayOrder.total = Double.parseDouble(fields[8]);
-        dayOrder.createAt = Instant.parse(fields[9]);
-        return dayOrder;
+        showOldOrderUser.idCustomer = Long.parseLong(fields[0]);
+        showOldOrderUser.nameCustomer = fields[1];
+        showOldOrderUser.phone = fields[2];
+        showOldOrderUser.address = fields[3];
+        showOldOrderUser.iditem = Long.parseLong(fields[4]);
+        showOldOrderUser.nameFood = fields[5];
+        showOldOrderUser.price = Double.parseDouble(fields[6]);
+        showOldOrderUser.quantity = Integer.parseInt(fields[7]);
+        showOldOrderUser.total = Double.parseDouble(fields[8]);
+        showOldOrderUser.createAt = Instant.parse(fields[9]);
+        return showOldOrderUser;
     }
 
     public Long getIdCustomer() {
@@ -82,7 +81,7 @@ public class DayOrder {
         return iditem;
     }
 
-    public void setIditem(Long id) {
+    public void setIditem(Long iditem) {
         this.iditem = iditem;
     }
 
@@ -125,10 +124,8 @@ public class DayOrder {
     public void setCreateAt(Instant createAt) {
         this.createAt = createAt;
     }
-
     @Override
     public String toString() {
         return String.format("%d,%s,%s,%s,%s,%s,%s,%s,%s,%s",idCustomer,nameCustomer,phone,address, iditem, nameFood, price, quantity, total, createAt);
     }
-
 }

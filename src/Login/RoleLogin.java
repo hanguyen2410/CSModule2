@@ -37,7 +37,7 @@ public class RoleLogin {
                     choice = input.nextLine();
                     switch (choice) {
                         case "1":
-                            choice = "-2";
+                            login();
                             break;
                         case "0":
                             System.out.println("Hẹn Gặp Lại!!!");
@@ -58,7 +58,7 @@ public class RoleLogin {
                     choice = input.nextLine();
                     switch (choice) {
                         case "1":
-                            choice = "-2";
+                            login();
                             break;
                         case "0":
                             System.out.println("Hẹn Gặp Lại!!!");

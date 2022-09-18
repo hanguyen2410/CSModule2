@@ -15,11 +15,10 @@ import java.util.Scanner;
 
 public class OrderItemManager {
     List<OrderItem> orderItems;
-    private final static String PATCH_ORDERITEM = "D:\\vscode\\module2\\CSModule2\\CSModule2\\OrderItem.csv";
-    private final static String PATH_FOODMENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv";
+    private final static String PATCH_ORDERITEM = "D:\\vscode\\module2\\TestCSM2\\data\\OrderItem.csv";
+    private final static String PATH_FOODMENU = "D:\\vscode\\module2\\TestCSM2\\data\\FoodMenu.csv";
     public OrderItemManager() {
         List<OrderItem> orderItemList = new ArrayList<>();
-        this.orderItems = orderItemList;
     }
 
     public static List<OrderItem> findAll() {
@@ -76,7 +75,6 @@ public class OrderItemManager {
         }
         OrderItem newOrder = new OrderItem(id, nameFood, price, quantity, total);
         orderItems.add(newOrder);
-
         ReadFifeandWriteFile.write(PATCH_ORDERITEM, orderItems);
         System.out.println("Order thành công!");
         renderOrderItem();
@@ -209,7 +207,7 @@ public class OrderItemManager {
         BufferedReader br = null;
         try {
             String line;
-            br = new BufferedReader(new FileReader("D:\\vscode\\module2\\CSModule2\\CSModule2\\OrderItem.csv"));
+            br = new BufferedReader(new FileReader(PATCH_ORDERITEM));
             while ((line = br.readLine()) != null) {
                 printMenuOrderItem(parseCsvLine(line));
             }
@@ -270,7 +268,6 @@ public class OrderItemManager {
             long idEdit = 0;
             int quantity = 0;
             if (tamp.equals(id)) {
-                orderItemList.remove(orderItem);
                 FoodManager render = new FoodManager();
                 render.renderFood();
                 System.out.println("Nhập ID của vật phẩm mới: ");
@@ -278,6 +275,7 @@ public class OrderItemManager {
                 for (OrderItem orderItemEdit : orderItemList) {
                     Long tampSame = orderItemEdit.getId();
                     if (tampSame.equals(idEdit)) {
+                        orderItemList.remove(orderItem);
                         List<OrderItem> orderItemListEdit = findAll();
                         price = orderItemEdit.getPrice();
                         name = orderItemEdit.getNameFood();

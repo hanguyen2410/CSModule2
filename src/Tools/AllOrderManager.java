@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AllOrderManager {
     public List<AllOrder> allOrders;
-    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv";
+    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\TestCSM2\\data\\AllOrder.csv";
 
     public static List<AllOrder> findAll() {
         List<AllOrder> allOders = new ArrayList<>();
@@ -26,8 +26,8 @@ public class AllOrderManager {
     }
 
     public void renderAllOrder() {
-        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋ALL-ORDER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-        System.out.printf("\n\t%-16s %-36s %-26s %-15s %-26s %-16s %s\n\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng", "Thành Tiền", "Ngày Xuất Đơn", "㊋");
+        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋ALL-ORDER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+        System.out.printf("\n\t%-20s %-20s %-20s %-20s %-20s %-20s  %-20s %-20s %-20s %-20s %s\n\n","ID Order", "Tên Khách Hàng","Số Điện Thoại","Địa Chỉ", "ID Sản Phẩm", "Tên Món Ăn", "Giá Tiền", "Số Lượng", "Thành Tiền", "Ngày Xuất Đơn", "㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -45,7 +45,7 @@ public class AllOrderManager {
                 e.printStackTrace();
             }
         }
-        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
+        System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
     }
 
     public static List<String> parseCsvLine(String csvLine) {
@@ -60,7 +60,7 @@ public class AllOrderManager {
     }
 
     public static void printMenu(List<String> AllOder) {
-        System.out.printf("\n\t%-16s %-36s %-26s %-16s %-26s %-15s %s\n\n", AllOder.get(0), AllOder.get(1), InstantUtils.doubleToVND(Double.parseDouble(AllOder.get(2))), AllOder.get(3), InstantUtils.doubleToVND(Double.parseDouble(AllOder.get(4))), InstantUtils.instantToString(Instant.parse(AllOder.get(5))), "㊋");
+        System.out.printf("\n\t%-20s %-20s %-20s %-20s %-20s %-20s  %-20s %-20s %-20s %-20s %s\n",AllOder.get(0),AllOder.get(1),AllOder.get(2),AllOder.get(3), AllOder.get(4), AllOder.get(5), InstantUtils.doubleToVND(Double.parseDouble(AllOder.get(6))), AllOder.get(7), InstantUtils.doubleToVND(Double.parseDouble(AllOder.get(8))), InstantUtils.instantToString(Instant.parse(AllOder.get(9))), "㊋");
     }
     public static Double totalAllPrice() {
         List<AllOrder> allOrderList = findAll();

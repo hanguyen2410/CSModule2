@@ -14,7 +14,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CreateUserManager {
-    private final static String PATCH_CREATEUSER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\CreateUser.csv";
+    private final static String PATCH_CREATEUSER = "D:\\vscode\\module2\\TestCSM2\\data\\CreateUser.csv";
+    private final static String PATCH_USER = "D:\\vscode\\module2\\TestCSM2\\data\\User.csv";
 
     public static void createAddUser() {
         List<CreateUser> createUsers = new ArrayList<>();
@@ -36,7 +37,7 @@ public class CreateUserManager {
         User newUser1 = new User(id,userName,passWord,fullName,phone,email,address,role);
         newUser1.setCreatedAt(Instant.now());
         users.add(newUser1);
-        ReadFifeandWriteFile.write("D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\User.csv", users);
+        ReadFifeandWriteFile.write(PATCH_USER, users);
         System.out.println("Đã tạo thành công !!");
         renderCreateUser();
     }

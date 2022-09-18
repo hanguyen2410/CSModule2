@@ -3,15 +3,19 @@ package Check;
 import Surface.OptionSadmin;
 import Surface.OptionAdmin;
 import Surface.OptionUser;
+import Tools.ReadFifeandWriteFile;
 import Tools.UserManager;
+import models.Order;
 import models.User;
 
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Checklogin {
     Scanner input = new Scanner(System.in);
-
+    private final static String PATCH_SAVEUSER = "D:\\vscode\\module2\\TestCSM2\\data\\SaveUser.csv";
     public void checkLogin() {
 
         List<User> userList = UserManager.findAll();
@@ -29,6 +33,7 @@ public class Checklogin {
                 String checkPassWord = user.getPassword();
                 String checkRole = user.getRole();
                 if (checkUser.equals(userName) && checkPassWord.equals(passWord)) {
+
                     count++;
                     if (checkRole.equals("SADMIN")) {
                         System.out.println("     "+"Chào SADMIN " + user.getFullName());
@@ -43,6 +48,15 @@ public class Checklogin {
                         break;
                     }
                     if (checkRole.equals("USER")) {
+                        List<Order> saveUser = new ArrayList<>();
+                        Long id = user.getId();
+                        String name = user.getFullName();
+                        String phone = user.getPhone();
+                        String address = user.getAddress();
+                        Instant createAt = Instant.now();
+                        Order newSaveUser = new Order(id,name,phone,address,createAt);
+                        saveUser.add(newSaveUser);
+                        ReadFifeandWriteFile.write(PATCH_SAVEUSER,saveUser);
                         System.out.println("     "+"Chào USER " + user.getFullName());
                         System.out.println("     "+"Đăng Nhập Thành Công!!");
                         OptionUser.optionUser();

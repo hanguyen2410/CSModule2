@@ -12,11 +12,12 @@ import java.util.Scanner;
 
 public class FoodManager {
     public List<Food> foods;
-    private final static String PATCH_MENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\src\\FoodMenu.csv";
+    private final static String PATCH_MENU = "D:\\vscode\\module2\\TestCSM2\\data\\FoodMenu.csv";
 
     public FoodManager() {
         List<Food> foodList = new ArrayList<>();
         this.foods = foodList;
+
     }
 
     public static List<Food> findAll() {
@@ -132,6 +133,7 @@ public class FoodManager {
                 for (Food dish : foods) {
                     Long tamp = dish.getId();
                     if (tamp.equals(id)) {
+//                        foods.remove(dish);
                         String name = OrderValidateUltils.inputFoodName();
                         double price = OrderValidateUltils.inputPrice();
                         int quatity = OrderValidateUltils.inputQuantity();

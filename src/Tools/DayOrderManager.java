@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class DayOrderManager {
     public List<AllOrder> allOrders;
-    private final static String PATCH_DAYORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\DayOrder";
+    private final static String PATCH_DAYORDER = "D:\\vscode\\module2\\TestCSM2\\data\\DayOrder.csv";
 
     public static List<DayOrder> findAll() {
         List<DayOrder> dayOrders = new ArrayList<>();
@@ -27,7 +27,7 @@ public class DayOrderManager {
 
     public void renderAllOrder() {
         System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋ALL-ORDER㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-        System.out.printf("\n\t%-16s %-36s %-26s %-15s %-26s %-16s %s\n\n", "ID", "Tên Món Ăn", "Giá Tiền", "Số Lượng", "Thành Tiền", "Ngày Xuất Đơn", "㊋");
+        System.out.printf("\n\t%-16s %-15s %-15s %-15s %-15s %-15s  %-15s %-15s %-15s %-16s %s\n\n","ID Order", "Tên Khách Hàng","Số Điện Thoại","Địa Chỉ", "ID Sản Phẩm", "Tên Món Ăn", "Giá Tiền", "Số Lượng", "Thành Tiền", "Ngày Xuất Đơn", "㊋");
         BufferedReader br = null;
         try {
             String line;
@@ -60,7 +60,7 @@ public class DayOrderManager {
     }
 
     public static void printMenu(List<String> dayOrder) {
-        System.out.printf("\n\t%-16s %-36s %-26s %-16s %-26s %-15s %s\n\n", dayOrder.get(0), dayOrder.get(1), InstantUtils.doubleToVND(Double.parseDouble(dayOrder.get(2))), dayOrder.get(3), InstantUtils.doubleToVND(Double.parseDouble(dayOrder.get(4))), InstantUtils.instantToString(Instant.parse(dayOrder.get(5))), "㊋");
+        System.out.printf("\n\t%-16s %-15s %-15s %-15s %-15s %-15s  %-15s %-15s %-15s %-16s %s\n",dayOrder.get(0),dayOrder.get(1),dayOrder.get(2),dayOrder.get(3), dayOrder.get(4), dayOrder.get(5), InstantUtils.doubleToVND(Double.parseDouble(dayOrder.get(6))), dayOrder.get(7), InstantUtils.doubleToVND(Double.parseDouble(dayOrder.get(8))), InstantUtils.instantToString(Instant.parse(dayOrder.get(9))), "㊋");
     }
 
     public void SortByDayOrder() {
@@ -69,7 +69,11 @@ public class DayOrderManager {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập ngày muốn tìm kiếm (Ví dụ: 16-12-2022)");
         String day = input.nextLine();
-        Long id;
+        Long idCustomer;
+        String nameCustomer;
+        String phone;
+        String address;
+        Long iditem;
         String nameFood;
         double price;
         int quantity;
@@ -78,13 +82,17 @@ public class DayOrderManager {
         int count = 0;
         for (AllOrder allOrder : allorders) {
             if (InstantUtils.instantToString((allOrder.getCreateAt())).equals(day)) {
-                id = allOrder.getId();
+                idCustomer = allOrder.getIdCustomer();
+                nameCustomer = allOrder.getNameCustomer();
+                phone = allOrder.getPhone();
+                address = allOrder.getAddress();
+                iditem = allOrder.getIditem();
                 nameFood = allOrder.getNameFood();
                 price = allOrder.getPrice();
                 quantity = allOrder.getQuantity();
                 total = allOrder.getTotal();
                 createAt = allOrder.getCreateAt();
-                DayOrder dayOrder = new DayOrder(id, nameFood, price, quantity, total, createAt);
+                DayOrder dayOrder = new DayOrder(idCustomer,nameCustomer,phone,address,iditem, nameFood, price, quantity, total, createAt);
                 dayOrders.add(dayOrder);
                 count++;
                 ReadFifeandWriteFile.write(PATCH_DAYORDER, dayOrders);

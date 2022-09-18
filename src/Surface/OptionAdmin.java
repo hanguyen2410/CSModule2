@@ -1,18 +1,21 @@
 package Surface;
 
 import Tools.*;
-import models.AllOrder;
-import models.OrderItem;
+import utils.AddOrderItemInAllOrder;
+import utils.BackMeNuOrExit;
 import utils.InstantUtils;
+import utils.TotalPrice;
 
-import java.time.Instant;
-import java.util.List;
 import java.util.Scanner;
 
 public class OptionAdmin {
-    public static int choice = -1;
-    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\AllOrder.csv";
+
+    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\TestCSM2\\data\\AllOrder.csv";
+    static AddOrderItemInAllOrder addOrderItemInAllOrder = new AddOrderItemInAllOrder();
+    static BackMeNuOrExit backMeNuOrExit = new BackMeNuOrExit();
+    static TotalPrice totalPrice = new TotalPrice();
     public static void optionAdmin() {
+         int choice = -1;
         while (choice != 0 && choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7 && choice != 8) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("\uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E  \uD83D\uDC8E ");
@@ -36,152 +39,33 @@ public class OptionAdmin {
                     switch (choice) {
                         case 1:
                             foodManager.renderFood();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
 
                         case 2:
                             foodManager.addFood();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 3:
                             foodManager.deleteFood();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 4:
                             foodManager.editFood();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                                    switch (choice) {
-                                        case 1:
-                                            OptionAdmin.optionAdmin();
-                                            break;
-                                        case 0:
-                                            System.out.println("Hẹn Gặp Lại!!!");
-                                            System.exit(0);
-                                            break;
-                                    }
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
+
                             break;
                         case 5:
                             foodManager.findFoodName();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 6:
                             foodManager.sortAscending();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 7:
                             foodManager.sortDescending();
-                            System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để quay lại menu chính hoặc 0 để thoát ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 8:
                             OptionAdmin.optionAdmin();
@@ -207,97 +91,26 @@ public class OptionAdmin {
                     switch (choice) {
                         case 1: //hiển thị tổng oder
                             allOrderManager.renderAllOrder();
-                            System.out.println();
-                            System.out.println("                                                  Tổng Cộng : " + InstantUtils.doubleToVND(AllOrderManager.totalAllPrice()));
-                            System.out.println();
-                            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-                            System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            totalPrice.TotalAllOrderPrice();
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 2: // hiển thị order theo ngày
                             dayOrderManager.SortByDayOrder();
-                            System.out.println();
-                            System.out.println("                                                  Tổng Cộng : " + InstantUtils.doubleToVND(DayOrderManager.totalDayPrice()));
-                            System.out.println();
-                            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-                            System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            totalPrice.TotalDayPrice();
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 3: //thêm đơn đặt hàng
                             orderManager.addOrder();
                             orderItemManager.addOrderItem();
                             orderManager.renderOder();
                             orderItemManager.renderOrderItem();
-                            System.out.println();
-                            System.out.println("                                      Tổng Cộng : " + orderItemManager.totalPrice());
-                            System.out.println();
-                            System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-                            System.out.println("           Bạn đã đặt hàng thành công, Shipper sẽ sớm giao đến địa chỉ của bạn !! Thank you very much!!");
-                            List<OrderItem> orderItemList = OrderItemManager.findAll();
-                            for (OrderItem orderitem : orderItemList) {
-                                Instant createAt = Instant.now();
-                                List<AllOrder> allOrders = AllOrderManager.findAll();
-                                AllOrder allOrder = new AllOrder(orderitem.getId(), orderitem.getNameFood(), orderitem.getPrice(), orderitem.getQuantity(), orderitem.getTotal(), createAt);
-                                allOrders.add(allOrder);
-                                ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
-                            }
-                            System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
-                            System.out.printf("︻┳═一 :");
-                            choice = Integer.parseInt(scanner.nextLine());
-                            switch (choice) {
-                                case 1:
-                                    OptionAdmin.optionAdmin();
-                                    break;
-                                case 0:
-                                    System.out.println("Hẹn Gặp Lại!!!");
-                                    System.exit(0);
-                                    break;
-                                default:
-                                    System.out.println("Vui Lòng Nhập Lại!");
-                                    System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                            }
+                            totalPrice.TotalOrderItemPrice();
+                            addOrderItemInAllOrder.AddOrderItemInAllOrder();
+                            backMeNuOrExit.BackMeNuOrExitAdmin();
                             break;
                         case 4:// sửa đơn đặt hàng
                             orderItemManager.editOrderItem();
-                            List<OrderItem> orderItemListEdit = OrderItemManager.findAll();
-                            for (OrderItem orderitem : orderItemListEdit) {
-                                Instant createAt = Instant.now();
-                                List<AllOrder> allOrders = AllOrderManager.findAll();
-                                AllOrder allOrder = new AllOrder(orderitem.getId(), orderitem.getNameFood(), orderitem.getPrice(), orderitem.getQuantity(), orderitem.getTotal(), createAt);
-                                allOrders.add(allOrder);
-                                ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
-                            }
+                            addOrderItemInAllOrder.AddOrderItemInAllOrder();
                             System.out.println("Nhấn 1 để in hóa đơn hoặc 2 để về menu chính và 0 để thoát !! ");
                             System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
@@ -305,28 +118,8 @@ public class OptionAdmin {
                                 case 1:
                                     orderManager.renderOder();
                                     orderItemManager.renderOrderItem();
-                                    System.out.println();
-                                    System.out.println("                                      Tổng Cộng : " + InstantUtils.doubleToVND(orderItemManager.totalPrice()));
-                                    System.out.println();
-                                    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-                                    System.out.println("           Bạn đã đặt hàng thành công, Shipper sẽ sớm giao đến địa chỉ của bạn !! Thank you very much!!");
-                                    System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                                    switch (choice) {
-                                        case 1:
-                                            OptionAdmin.optionAdmin();
-                                            break;
-                                        case 0:
-                                            System.out.println("Hẹn Gặp Lại!!!");
-                                            System.exit(0);
-                                            break;
-                                        default:
-                                            System.out.println("Vui Lòng Nhập Lại!");
-                                            System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
-                                            System.out.printf("︻┳═一 :");
-                                            choice = Integer.parseInt(scanner.nextLine());
-                                    }
+                                    totalPrice.TotalOrderItemPrice();
+                                    backMeNuOrExit.BackMeNuOrExitAdmin();
                                     break;
                                 case 2:
                                     OptionAdmin.optionAdmin();
@@ -344,14 +137,7 @@ public class OptionAdmin {
                             break;
                         case 5: //xóa đơn đặt hàng
                             orderItemManager.deleteOrderItem();
-                            List<OrderItem> orderItemListDelete = OrderItemManager.findAll();
-                            for (OrderItem orderitem : orderItemListDelete) {
-                                Instant createAt = Instant.now();
-                                List<AllOrder> allOrders = AllOrderManager.findAll();
-                                AllOrder allOrder = new AllOrder(orderitem.getId(), orderitem.getNameFood(), orderitem.getPrice(), orderitem.getQuantity(), orderitem.getTotal(), createAt);
-                                allOrders.add(allOrder);
-                                ReadFifeandWriteFile.write(PATCH_ALLORDER, allOrders);
-                            }
+                            addOrderItemInAllOrder.AddOrderItemInAllOrder();
                             System.out.println("Nhấn 1 để in hóa đơn hoặc 2 để về menu chính và 0 để thoát !! ");
                             System.out.printf("︻┳═一 :");
                             choice = Integer.parseInt(scanner.nextLine());
@@ -359,28 +145,8 @@ public class OptionAdmin {
                                 case 1:
                                     orderManager.renderOder();
                                     orderItemManager.renderOrderItem();
-                                    System.out.println();
-                                    System.out.println("                                      Tổng Cộng : " + InstantUtils.doubleToVND(orderItemManager.totalPrice()));
-                                    System.out.println();
-                                    System.out.println("㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋㊋");
-                                    System.out.println("           Bạn đã đặt hàng thành công, Shipper sẽ sớm giao đến địa chỉ của bạn !! Thank you very much!!");
-                                    System.out.println("Nhấn 1 để về menu chính và 0 để thoát !! ");
-                                    System.out.printf("︻┳═一 :");
-                                    choice = Integer.parseInt(scanner.nextLine());
-                                    switch (choice) {
-                                        case 1:
-                                            OptionAdmin.optionAdmin();
-                                            break;
-                                        case 0:
-                                            System.out.println("Hẹn Gặp Lại!!!");
-                                            System.exit(0);
-                                            break;
-                                        default:
-                                            System.out.println("Vui Lòng Nhập Lại!");
-                                            System.out.println("Nhấn 1 để in hóa đơn hoặc 0 để order tiếp ");
-                                            System.out.printf("︻┳═一 :");
-                                            choice = Integer.parseInt(scanner.nextLine());
-                                    }
+                                    totalPrice.TotalOrderItemPrice();
+                                    backMeNuOrExit.BackMeNuOrExitAdmin();
                                     break;
                                 case 2:
                                     OptionAdmin.optionAdmin();
