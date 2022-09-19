@@ -15,8 +15,8 @@ import java.util.Scanner;
 
 public class OrderItemManager {
     List<OrderItem> orderItems;
-    private final static String PATCH_ORDERITEM = "D:\\vscode\\module2\\TestCSM2\\data\\OrderItem.csv";
-    private final static String PATH_FOODMENU = "D:\\vscode\\module2\\TestCSM2\\data\\FoodMenu.csv";
+    private final static String PATCH_ORDERITEM = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\OrderItem.csv";
+    private final static String PATH_FOODMENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\FoodMenu.csv";
     public OrderItemManager() {
         List<OrderItem> orderItemList = new ArrayList<>();
     }

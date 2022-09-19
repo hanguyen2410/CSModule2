@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CreateUserManager {
-    private final static String PATCH_CREATEUSER = "D:\\vscode\\module2\\TestCSM2\\data\\CreateUser.csv";
-    private final static String PATCH_USER = "D:\\vscode\\module2\\TestCSM2\\data\\User.csv";
+    private final static String PATCH_CREATEUSER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\CreateUser.csv";
+    private final static String PATCH_USER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\User.csv";
 
     public static void createAddUser() {
         List<CreateUser> createUsers = new ArrayList<>();

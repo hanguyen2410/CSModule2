@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class FoodManager {
     public List<Food> foods;
-    private final static String PATCH_MENU = "D:\\vscode\\module2\\TestCSM2\\data\\FoodMenu.csv";
+    private final static String PATCH_MENU = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\FoodMenu.csv";
 
     public FoodManager() {
         List<Food> foodList = new ArrayList<>();

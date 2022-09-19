@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.List;
 
 public class AddOrderItemInAllOrder {
-    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\TestCSM2\\data\\AllOrder.csv";
+    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\AllOrder.csv";
    public void AddOrderItemInAllOrder(){
        List<OrderItem> orderItemList = OrderItemManager.findAll();
        List<Order> orderList = OrderManager.findAll();

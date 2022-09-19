@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OptionSadmin {
-    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\TestCSM2\\data\\AllOrder.csv";
+    private final static String PATCH_ALLORDER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\AllOrder.csv";
     static AddOrderItemInAllOrder addOrderItemInAllOrder = new AddOrderItemInAllOrder();
     static BackMeNuOrExit backMeNuOrExit = new BackMeNuOrExit();
     static TotalPrice totalPrice = new TotalPrice();
