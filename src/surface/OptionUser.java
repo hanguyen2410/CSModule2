@@ -1,12 +1,10 @@
-package Surface;
+package surface;
 
-import Tools.*;
-import models.OrderItem;
+import tools.*;
 import utils.AddOrderItemInAllOrder;
 import utils.BackMeNuOrExit;
 import utils.TotalPrice;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class OptionUser {

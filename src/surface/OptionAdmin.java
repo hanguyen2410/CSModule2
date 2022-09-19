@@ -1,9 +1,8 @@
-package Surface;
+package surface;
 
-import Tools.*;
+import tools.*;
 import utils.AddOrderItemInAllOrder;
 import utils.BackMeNuOrExit;
-import utils.InstantUtils;
 import utils.TotalPrice;
 
 import java.util.Scanner;

@@ -1,7 +1,6 @@
 package utils;
 
-import Tools.FoodManager;
-import Tools.UserManager;
+import tools.FoodManager;
 
 import java.util.Scanner;
 

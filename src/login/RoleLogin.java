@@ -1,8 +1,8 @@
-package Login;
+package login;
 
-import Check.Checklogin;
-import Check.PasswordFogot;
-import Tools.CreateUserManager;
+import check.CheckLogin;
+import check.PasswordFogot;
+import tools.CreateUserManager;
 
 import java.util.Scanner;
 
@@ -26,7 +26,7 @@ public class RoleLogin {
             String choice = input.nextLine();
             switch (choice) {
                 case "1":
-                    Checklogin checklogin = new Checklogin();
+                    CheckLogin checklogin = new CheckLogin();
                     checklogin.checkLogin();
                     break;
                 case "2":

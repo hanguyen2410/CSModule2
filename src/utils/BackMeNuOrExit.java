@@ -1,8 +1,8 @@
 package utils;
 
-import Surface.OptionAdmin;
-import Surface.OptionSadmin;
-import Surface.OptionUser;
+import surface.OptionAdmin;
+import surface.OptionSadmin;
+import surface.OptionUser;
 
 import java.util.Scanner;
 

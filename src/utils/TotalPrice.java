@@ -1,9 +1,9 @@
 package utils;
 
-import Tools.AllOrderManager;
-import Tools.DayOrderManager;
-import Tools.OrderItemManager;
-import Tools.ShowOldOrderUserManager;
+import tools.AllOrderManager;
+import tools.DayOrderManager;
+import tools.OrderItemManager;
+import tools.ShowOldOrderUserManager;
 
 public class TotalPrice {
     OrderItemManager orderItemManager = new OrderItemManager();

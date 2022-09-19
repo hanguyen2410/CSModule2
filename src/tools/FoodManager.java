@@ -1,4 +1,4 @@
-package Tools;
+package tools;
 
 import models.Food;
 import utils.InstantUtils;

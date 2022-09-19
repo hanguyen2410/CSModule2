@@ -1,4 +1,4 @@
-package Tools;
+package tools;
 
 import models.CreateUser;
 import models.User;

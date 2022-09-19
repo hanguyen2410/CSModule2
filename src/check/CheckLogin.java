@@ -1,10 +1,10 @@
-package Check;
+package check;
 
-import Surface.OptionSadmin;
-import Surface.OptionAdmin;
-import Surface.OptionUser;
-import Tools.ReadFifeandWriteFile;
-import Tools.UserManager;
+import surface.OptionSadmin;
+import surface.OptionAdmin;
+import surface.OptionUser;
+import tools.ReadFifeandWriteFile;
+import tools.UserManager;
 import models.Order;
 import models.User;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Checklogin {
+public class CheckLogin {
     Scanner input = new Scanner(System.in);
     private final static String PATCH_SAVEUSER = "D:\\vscode\\module2\\CSModule2\\CSModule2\\data\\SaveUser.csv";
     public void checkLogin() {

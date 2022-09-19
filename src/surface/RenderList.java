@@ -1,4 +1,4 @@
-package Surface;
+package surface;
 
 public class RenderList {
     public void renderMenuManager() {

@@ -1,6 +1,6 @@
-package Check;
+package check;
 
-import Tools.UserManager;
+import tools.UserManager;
 import models.User;
 
 import java.util.List;

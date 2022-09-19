@@ -1,8 +1,7 @@
 package utils;
 
-import Tools.UserManager;
+import tools.UserManager;
 
-import java.lang.ref.SoftReference;
 import java.util.Scanner;
 
 public class UserValidateUltils {
